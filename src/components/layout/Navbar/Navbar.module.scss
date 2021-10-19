@@ -1,0 +1,25 @@
+@import '../../../styles/settings.scss';
+@import '../../../styles/global.scss';
+
+.navbarContainer {
+  position: fixed;
+  display: block;
+  height: 100px;
+  width: 100%;
+  top: 0;
+  left: 0;
+  background-image: linear-gradient(to right, $color-main-one , $color-dark);
+  z-index: 100;
+}
+
+.navbarRow {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+}
+
+.navbarCol {
+  flex: 1;
+  margin: 0 $base-size * 0.2;
+}

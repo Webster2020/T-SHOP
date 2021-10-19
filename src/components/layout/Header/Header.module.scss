@@ -1,0 +1,37 @@
+@import '../../../styles/settings.scss';
+@import '../../../styles/global.scss';
+
+.headerContainer {
+  position: static;
+  display: block;
+  margin: $base-size * 10 0 0;
+  padding: 0;
+  height: 300px;
+  width: 100%;
+  border-top: $base-size * 1 solid $color-dark;
+  border-bottom: $base-size * 1 solid $color-dark;
+  // background-color: $color-main-two;
+  background-image: linear-gradient(to left, $color-main-three, $color-main-two);
+}
+
+.headerWrapper {
+  padding: 100px 0;
+  // border: 2px solid red;
+}
+
+.headerLogo {
+  margin: 0;
+  padding: 0;
+  // border: 2px solid yellow;
+  h1 {
+    margin: 0;
+    padding: 0;
+    font-family: $font-special;
+    font-size: $base-size * 8;
+    color: $color-dark;
+    text-align: center;
+  }
+  span {
+    font-size: $base-size * 9;
+  }
+}

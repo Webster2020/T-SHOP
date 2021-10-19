@@ -1,1 +1,17 @@
-@import "settings.scss";
+@import './settings.scss';
+
+*, *::before, *::after {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  padding: 0;
+  background-image: linear-gradient(to right, $color-main-one , $color-dark);
+  font-family: $font-main;
+  font-size: ($base-size * 1.2);
+  color: $color-dark;
+  letter-spacing: 0.5px;
+}
+
+@import './typography.scss';
