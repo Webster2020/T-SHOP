@@ -1,0 +1,11 @@
+@import '../../../styles/settings.scss';
+@import '../../../styles/global.scss';
+
+.sectionContainer {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  margin: 0;
+  padding: 0;
+}
+
