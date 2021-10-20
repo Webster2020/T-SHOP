@@ -9,7 +9,7 @@ import styles from './Header.module.scss';
 import { Banner } from '../Banner/Banner';
 
 const Component = () => (
-  <header className={styles.headerContainer}>
+  <header className={styles.root}>
     <Banner />
   </header>
 );

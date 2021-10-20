@@ -1,0 +1,9 @@
+@import "../../../styles/settings.scss";
+@import '../../../styles/global.scss';
+
+.root {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  margin: $base-size * 1 $base-size * 3;
+}

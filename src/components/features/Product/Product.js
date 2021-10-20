@@ -6,15 +6,20 @@ import clsx from 'clsx';
 // import { connect } from 'react-redux';
 // import { reduxSelector, reduxActionCreator } from '../../../redux/exampleRedux.js';
 
-import styles from './Logo.module.scss';
+import styles from './Product.module.scss';
+
+import { Tshirt } from '../../common/Tshirt/Tshirt';
+import { ProductButtons } from '../ProductButtons/ProductButtons';
 
 const Component = ({className}) => (
   <div className={clsx(className, styles.root)}>
-    <h1>T<span>SHOP</span></h1>
+    <Tshirt />
+    <ProductButtons />
   </div>
 );
 
 Component.propTypes = {
+  children: PropTypes.node,
   className: PropTypes.string,
 };
 
@@ -29,7 +34,7 @@ Component.propTypes = {
 // const Container = connect(mapStateToProps, mapDispatchToProps)(Component);
 
 export {
-  Component as Logo,
-  // Container as Logo,
-  Component as LogoComponent,
+  Component as Product,
+  // Container as Product,
+  Component as ProductComponent,
 };

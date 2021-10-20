@@ -1,17 +1,15 @@
 @import '../../../styles/settings.scss';
 @import '../../../styles/global.scss';
 
-.bannerWrapper {
+.root {
   display: block;
   margin: $base-size * 0.2 auto;
-  padding: $base-size * 5 $base-size * 1;
+  padding: $base-size * 4 $base-size * 1;
   box-shadow: $box-shadow-md;
   font-family: $font-main;
   font-size: $base-size * 2;
   color: $color-white;
-  text-decoration: none;
   text-align: center;
-  transition: $transition-slower;
   h1 {
     font-size: $base-size * 9;
     font-weight: 600;

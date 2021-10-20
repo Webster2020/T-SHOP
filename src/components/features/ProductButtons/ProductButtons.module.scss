@@ -1,0 +1,14 @@
+@import '../../../styles/settings.scss';
+@import '../../../styles/global.scss';
+
+.root {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  width: 72px;
+  margin-left: $base-size * 0.5;
+}
+
+.iconWrapper {
+  margin: $base-size * 0.13 $base-size * 0.5;
+}

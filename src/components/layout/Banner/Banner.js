@@ -9,7 +9,7 @@ import styles from './Banner.module.scss';
 import { Logo } from '../../common/Logo/Logo'; 
 
 const Component = () => (
-  <div className={styles.bannerWrapper}>
+  <div className={styles.root}>
     <Logo />
   </div>
 );

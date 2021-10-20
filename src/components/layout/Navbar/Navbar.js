@@ -1,5 +1,6 @@
 import React from 'react';
 // import PropTypes from 'prop-types';
+import shortid from 'shortid';
 
 // import { connect } from 'react-redux';
 // import { reduxSelector, reduxActionCreator } from '../../../redux/exampleRedux.js';
@@ -8,27 +9,22 @@ import styles from './Navbar.module.scss';
 
 import { Button } from '../../common/Button/Button';
 
-const Component = () => (
-  <nav className={styles.navbarContainer}>
-    <div className={styles.navbarRow}>
-      <div className={styles.navbarCol}>
-        <Button variant='nav' width='wdtFull'>LOGO</Button>
+const Component = () => {
+
+  const menu = ['LOGO', 'HOME', 'CREATE', 'EXAMPLES', 'CART'];
+
+  return (
+    <nav className={styles.root}>
+      <div className={styles.row}>
+        {menu.map(el => (
+          <div key={shortid.generate()} className={styles.col}>
+            <Button variant='nav' width='wdtFull'>{el}</Button>
+          </div>
+        ))}
       </div>
-      <div className={styles.navbarCol}>
-        <Button variant='nav' width='wdtFull'>HOME</Button>
-      </div>
-      <div className={styles.navbarCol}>
-        <Button variant='nav' width='wdtFull'>CREATE</Button>
-      </div>
-      <div className={styles.navbarCol}>
-        <Button variant='nav' width='wdtFull'>EXAMPLES</Button>
-      </div>
-      <div className={styles.navbarCol}>
-        <Button variant='nav' width='wdtFull'>CART</Button>
-      </div>
-    </div>
-  </nav>
-);
+    </nav>
+  );
+};
 
 // Component.propTypes = {
 // };

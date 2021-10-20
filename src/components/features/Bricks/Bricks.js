@@ -10,20 +10,20 @@ import styles from './Bricks.module.scss';
 
 const Component = ({className, children}) => (
   <div className={clsx(className, styles.root)}>
-    <div className={styles.bricksWrapper}>
-      <div className={`${styles.bricksBrick} ${styles.bricksDark}`}></div>
-      <div className={`${styles.bricksBrick} ${styles.bricksWhite}`}></div>
+    <div className={styles.wrapper}>
+      <div className={`${styles.brick} ${styles.dark}`}></div>
+      <div className={`${styles.brick} ${styles.white}`}></div>
     </div>
-    <div className={styles.bricksWrapper}>
-      <div className={`${styles.bricksBrick} ${styles.bricksWhite}`}></div>
-      <div className={styles.bricksBrick}></div>
-      <div className={`${styles.bricksBrick} ${styles.bricksDark}`}></div>
+    <div className={styles.wrapper}>
+      <div className={`${styles.brick} ${styles.white}`}></div>
+      <div className={styles.brick}></div>
+      <div className={`${styles.brick} ${styles.dark}`}></div>
     </div>
-    <div className={styles.bricksWrapper}>
-      <div className={styles.bricksBrick}></div>
-      <div className={`${styles.bricksBrick} ${styles.bricksDark}`}></div>
-      <div className={`${styles.bricksBrick} ${styles.bricksWhite}`}></div>
-      <div className={styles.bricksBrick}></div>
+    <div className={styles.wrapper}>
+      <div className={styles.brick}></div>
+      <div className={`${styles.brick} ${styles.dark}`}></div>
+      <div className={`${styles.brick} ${styles.white}`}></div>
+      <div className={styles.brick}></div>
     </div>
     {children}
   </div>

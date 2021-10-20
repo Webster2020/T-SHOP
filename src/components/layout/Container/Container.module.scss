@@ -3,10 +3,11 @@
 
 .root {
   display: block;
-  margin: 0 auto;
-  max-width: 1300px;
+  margin: $base-size * 5 auto;
+  max-width: 1200px;
+  border: 1px solid salmon;
 }
 
-.containerFull {
+.w100p {
   width: 100%;
 }

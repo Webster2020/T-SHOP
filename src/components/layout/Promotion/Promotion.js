@@ -1,6 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-
+import shortid from 'shortid';
 import clsx from 'clsx';
 
 // import { connect } from 'react-redux';
@@ -10,42 +10,41 @@ import styles from './Promotion.module.scss';
 
 import { Bricks } from '../../features/Bricks/Bricks';
 
-const Component = ({className, variant}) => (
-  <div className={clsx(className, styles.root)}>
+const Component = ({className, variant}) => {
 
-    {variant === 'promo' && 
-      (
-        <div className={styles.sectionRow}>
-          <div className={`${styles.sectionCol} ${styles.sectionPromo}`}>
-            <h1>CREATE</h1>
-            <h1>CUSTOM</h1>
-            <h1>PRODUCT</h1>
-          </div>
-          <div className={styles.sectionCol}>
-            <Bricks />
-          </div>
-        </div>
-      )
-    }
+  const benefits = ['FREE SHIPPING', '60-DAYS REFUND', '24/7 SUPPORT'];
 
-    {variant === 'benefits' && 
-      (
-        <div className={styles.sectionRow}>
-          <div className={`${styles.sectionCol} ${styles.sectionBenefits}`}>
-            <h1>FREE SHIPPING</h1>
+  return (
+    <div className={clsx(className, styles.root)}>
+      {variant === 'promo' && 
+        (
+          <div className={styles.sectionRow}>
+            <div className={`${styles.sectionCol} ${styles.sectionPromo}`}>
+              <h1>CREATE</h1>
+              <h1>CUSTOM</h1>
+              <h1>PRODUCT</h1>
+            </div>
+            <div className={styles.sectionCol}>
+              <Bricks />
+            </div>
           </div>
-          <div className={`${styles.sectionCol} ${styles.sectionBenefits}`}>
-            <h1>60-DAYS REFUND</h1>
+        )
+      }
+      {variant === 'benefits' && 
+        (
+          <div className={styles.sectionRow}>
+            {benefits.map(el => (
+              <div key={shortid.generate()} className={`${styles.sectionCol} ${styles.sectionBenefits}`}>
+                <h1>{el}</h1>
+              </div> 
+            ))}
           </div>
-          <div className={`${styles.sectionCol} ${styles.sectionBenefits}`}>
-            <h1>24/7 SUPPORT</h1>
-          </div>
-        </div>
-      )
-    }
+        )
+      }
+    </div>
+  );
 
-  </div>
-);
+};
 
 Component.propTypes = {
   className: PropTypes.string,

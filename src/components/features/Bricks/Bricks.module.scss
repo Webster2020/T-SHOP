@@ -7,14 +7,14 @@
   width: 350px;
 }
 
-.bricksWrapper {
+.wrapper {
   display: flex;
   flex-direction: row;
   flex-wrap: wrap;
   justify-content: center;
 }
 
-.bricksBrick {
+.brick {
   display: block;
   margin: $base-size * 0.3;
   height: 80px;
@@ -22,10 +22,10 @@
   background-color: $color-black;
 }
 
-.bricksDark {
+.dark {
   background-color: $color-dark;
 }
 
-.bricksWhite {
+.white {
   background-color: $color-white;
 }

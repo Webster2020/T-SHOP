@@ -6,13 +6,21 @@ import React from 'react';
 
 import styles from './Home.module.scss';
 
+import { Container } from '../../layout/Container/Container';
 import { Header } from '../../layout/Header/Header';
+import { ProductsList } from '../../features/ProductsList/ProductsList';
 import { Promotion } from '../../layout/Promotion/Promotion';
 
 const Component = () => (
   <div className={styles.root}>
     <Header />
+    <Container>
+      <ProductsList />
+    </Container>
     <Promotion variant='promo'/>
+    <Container>
+      <ProductsList />
+    </Container>
     <Promotion variant='benefits'/>
   </div>
 );
