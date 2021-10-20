@@ -1,44 +1,24 @@
 import React from 'react';
-import PropTypes from 'prop-types';
-import { BsFillGearFill } from 'react-icons/bs';
-
-import clsx from 'clsx';
+// import PropTypes from 'prop-types';
 
 // import { connect } from 'react-redux';
 // import { reduxSelector, reduxActionCreator } from '../../../redux/exampleRedux.js';
 
 import styles from './Home.module.scss';
 
-import { Navbar } from '../../layout/Navbar/Navbar';
 import { Header } from '../../layout/Header/Header';
-import { Section } from '../../layout/Section/Section';
-import { SectionContent } from '../../layout/SectionContent/SectionContent';
-import { Text } from '../../common/Text/Text';
+import { Promotion } from '../../layout/Promotion/Promotion';
 
-const Component = ({className, children}) => (
-  <div className={clsx(className, styles.root)}>
-    <Navbar />
+const Component = () => (
+  <div className={styles.root}>
     <Header />
-    <Section>
-      <SectionContent>
-        <Text>CREATE SOMETHING NEW!</Text>
-      </SectionContent>
-      <SectionContent/>
-    </Section>
-    <Section>
-      <SectionContent>
-        <div><BsFillGearFill/></div>
-      </SectionContent>
-      <SectionContent/>
-    </Section>
-    {children}
+    <Promotion variant='promo'/>
+    <Promotion variant='benefits'/>
   </div>
 );
 
-Component.propTypes = {
-  children: PropTypes.node,
-  className: PropTypes.string,
-};
+// Component.propTypes = {
+// };
 
 // const mapStateToProps = state => ({
 //   someProp: reduxSelector(state),

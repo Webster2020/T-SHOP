@@ -1,0 +1,73 @@
+@import '../../../styles/settings.scss';
+@import '../../../styles/global.scss';
+
+.root {
+  display: block;
+  margin: $base-size 0;
+  padding: $base-size * 5;
+  max-width: 100%;
+  border: 3px solid $color-main-two;
+  background: repeating-linear-gradient(
+    110deg,
+    transparent,
+    transparent 60px,
+    $color-main-two 60px,
+    $color-main-two 120px
+  );
+  z-index: 100;
+}
+
+.sectionRow {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  flex-wrap: wrap;
+}
+
+.sectionCol {
+  display: block;
+  margin: $base-size * 1;
+  padding: $base-size * 5;
+  box-shadow: $box-shadow-md;
+  font-family: $font-main;
+  text-align: center;
+}
+
+.sectionPromo {
+  max-width: 600px;
+  h1 {
+    margin: $base-size 0;
+    padding: $base-size * 1.5;
+    font-size: $base-size * 6;
+    color: $color-white;
+    font-weight: 600;
+  }
+  h1:nth-of-type(1) {
+    color: $color-dark;
+    border-top: $base-size solid $color-black;
+    border-left: $base-size solid $color-dark;
+    letter-spacing: $base-size * 1.2;
+  }
+  h1:nth-of-type(2) {
+    color: $color-main-one;
+    padding: 0 $base-size * 1.5;
+    letter-spacing: $base-size * 0.7;
+  }
+  h1:nth-of-type(3) {
+    border-bottom: $base-size solid $color-white;
+    border-right: $base-size solid $color-white;
+  }
+}
+
+.sectionBenefits {
+  max-width: 290px;
+  padding: $base-size * 3;
+  h1 {
+    margin: $base-size 0;
+    padding: $base-size * 1.5;
+    border-top: $base-size * 0.5 solid $color-dark;
+    border-bottom: $base-size * 0.5 solid $color-dark;
+    font-size: $base-size * 4;
+    font-weight: 900;
+  }
+}

@@ -1,0 +1,14 @@
+@import '../../../styles/settings.scss';
+
+.logoWrapper {
+  h1 {
+    font-size: $base-size * 9;
+    font-weight: 600;
+    span {
+      padding-top: 9px;
+      font-size: $base-size * 6;
+      font-weight: 400;
+      border-top: $base-size * 1.2 solid $color-white;
+    }
+  }
+}

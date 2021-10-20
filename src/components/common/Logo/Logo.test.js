@@ -1,10 +1,10 @@
 import React from 'react';
 import { shallow } from 'enzyme';
-import { TextComponent } from './Text';
+import { LogoComponent } from './Logo';
 
-describe('Component Text', () => {
+describe('Component Logo', () => {
   it('should render without crashing', () => {
-    const component = shallow(<TextComponent />);
+    const component = shallow(<LogoComponent />);
     expect(component).toBeTruthy();
   });
 });

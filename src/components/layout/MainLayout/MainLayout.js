@@ -1,19 +1,22 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 
+import clsx from 'clsx';
+
 // import { connect } from 'react-redux';
 // import { reduxSelector, reduxActionCreator } from '../../../redux/exampleRedux.js';
 
-import styles from './Section.module.scss';
+import styles from './MainLayout.module.scss';
 
-const Component = ({children}) => (
-  <section className={styles.sectionContainer}>
+const Component = ({className, children}) => (
+  <main className={clsx(className, styles.root)}>
     {children}
-  </section>
+  </main>
 );
 
 Component.propTypes = {
   children: PropTypes.node,
+  className: PropTypes.string,
 };
 
 // const mapStateToProps = state => ({
@@ -27,7 +30,7 @@ Component.propTypes = {
 // const Container = connect(mapStateToProps, mapDispatchToProps)(Component);
 
 export {
-  Component as Section,
-  // Container as Section,
-  Component as SectionComponent,
+  Component as MainLayout,
+  // Container as MainLayout,
+  Component as MainLayoutComponent,
 };

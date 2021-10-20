@@ -1,0 +1,25 @@
+@import '../../../styles/settings.scss';
+@import '../../../styles/global.scss';
+
+.bannerWrapper {
+  display: block;
+  margin: $base-size * 0.2 auto;
+  padding: $base-size * 5 $base-size * 1;
+  box-shadow: $box-shadow-md;
+  font-family: $font-main;
+  font-size: $base-size * 2;
+  color: $color-white;
+  text-decoration: none;
+  text-align: center;
+  transition: $transition-slower;
+  h1 {
+    font-size: $base-size * 9;
+    font-weight: 600;
+    span {
+      padding-top: 9px;
+      font-size: $base-size * 6;
+      font-weight: 400;
+      border-top: $base-size * 1.2 solid $color-white;
+    }
+  }
+}

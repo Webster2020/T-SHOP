@@ -1,0 +1,8 @@
+@import '../../../styles/settings.scss';
+@import '../../../styles/global.scss';
+
+.root {
+  // min-height: calc(100vh - 190px);
+  margin: $base-size * 10 0 0;
+  padding: 0;
+}

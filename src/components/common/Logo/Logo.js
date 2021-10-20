@@ -1,21 +1,21 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 
+import clsx from 'clsx';
+
 // import { connect } from 'react-redux';
 // import { reduxSelector, reduxActionCreator } from '../../../redux/exampleRedux.js';
 
-import styles from './Text.module.scss';
+import styles from './Logo.module.scss';
 
-const Component = ({children}) => (
-  <div className={styles.textWrapper}>
-    <h2 className={styles.text}>
-      {children}
-    </h2>
+const Component = ({className}) => (
+  <div className={clsx(className, styles.logoWrapper)}>
+    <h1>T<span>SHOP</span></h1>
   </div>
 );
 
 Component.propTypes = {
-  children: PropTypes.string,
+  className: PropTypes.string,
 };
 
 // const mapStateToProps = state => ({
@@ -29,7 +29,7 @@ Component.propTypes = {
 // const Container = connect(mapStateToProps, mapDispatchToProps)(Component);
 
 export {
-  Component as Text,
-  // Container as Text,
-  Component as TextComponent,
+  Component as Logo,
+  // Container as Logo,
+  Component as LogoComponent,
 };
