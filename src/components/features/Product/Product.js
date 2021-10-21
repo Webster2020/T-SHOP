@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import PropTypes from 'prop-types';
 
 import clsx from 'clsx';
@@ -11,16 +11,24 @@ import styles from './Product.module.scss';
 import { Tshirt } from '../../common/Tshirt/Tshirt';
 import { ProductButtons } from '../ProductButtons/ProductButtons';
 
-const Component = ({className}) => (
-  <div className={clsx(className, styles.root)}>
-    <Tshirt />
-    <ProductButtons />
-  </div>
-);
+const Component = ({className, type, featuresDB}) => {
+
+  useEffect(() => {
+    // console.log(features);
+  });
+
+  return (
+    <div className={clsx(className, styles.root)}>
+      <Tshirt type={type} featuresDB={featuresDB}/>
+      <ProductButtons />
+    </div>
+  );
+};
 
 Component.propTypes = {
-  children: PropTypes.node,
   className: PropTypes.string,
+  type: PropTypes.string,
+  featuresDB: PropTypes.object,
 };
 
 // const mapStateToProps = state => ({

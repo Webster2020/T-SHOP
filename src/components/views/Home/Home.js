@@ -15,11 +15,11 @@ const Component = () => (
   <div className={styles.root}>
     <Header />
     <Container>
-      <ProductsList />
+      <ProductsList variant='top'/>
     </Container>
     <Promotion variant='promo'/>
     <Container>
-      <ProductsList />
+      <ProductsList variant='all'/>
     </Container>
     <Promotion variant='benefits'/>
   </div>

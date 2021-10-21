@@ -14,6 +14,9 @@
     $color-main-two 60px,
     $color-main-two 120px
   );
+  background-position: center center;
+  background-size: cover;
+  background-attachment: fixed;
   z-index: 100;
 }
 
@@ -60,7 +63,7 @@
 }
 
 .sectionBenefits {
-  max-width: 290px;
+  max-width: 350px;
   padding: $base-size * 3;
   h1 {
     margin: $base-size 0;
