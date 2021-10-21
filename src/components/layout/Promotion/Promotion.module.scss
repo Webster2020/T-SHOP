@@ -65,11 +65,12 @@
 .sectionBenefits {
   max-width: 350px;
   padding: $base-size * 3;
+  color: $color-white;
   h1 {
     margin: $base-size 0;
     padding: $base-size * 1.5;
-    border-top: $base-size * 0.5 solid $color-dark;
-    border-bottom: $base-size * 0.5 solid $color-dark;
+    border-top: $base-size * 0.5 solid $color-white;
+    border-bottom: $base-size * 0.5 solid $color-white;
     font-size: $base-size * 4;
     font-weight: 900;
   }

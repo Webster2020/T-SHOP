@@ -20,18 +20,9 @@ const Component = ({className, variant}) => {
     <div>
       {variant === 'all' &&
         <article className={clsx(className, styles.root)}>
-          <Product />
-          <Product />
-          <Product />
-          <Product />
-          <Product />
-          <Product />
-          <Product />
-          <Product />
-          <Product />
-          <Product />
-          <Product />
-          <Product />
+          {featuresFromDB.map(featuresDB => ( //filtere feturesDB in store (features.id < 4)
+            <Product key={featuresDB.id} type='common' featuresDB={featuresDB}/>         
+          ))}
         </article>
       }
       {variant === 'top' &&
@@ -40,9 +31,6 @@ const Component = ({className, variant}) => {
           {featuresFromDB.map(featuresDB => (
             <Product key={featuresDB.id} type='common' featuresDB={featuresDB}/>         
           ))}
-          <Product type='custom' />
-          {/* <Product type='common' features={features}/> */}
-          {/* <Product type='common' features={features}/> */}
         </article>
       }
     </div>
