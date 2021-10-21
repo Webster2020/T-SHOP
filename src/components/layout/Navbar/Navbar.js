@@ -11,7 +11,7 @@ import { Button } from '../../common/Button/Button';
 
 const Component = () => {
 
-  const menu = ['LOGO', 'HOME', 'CREATE', 'EXAMPLES', 'CART'];
+  const menu = ['HOME', 'CREATE', 'EXAMPLES', 'CART'];
 
   return (
     <nav className={styles.root}>

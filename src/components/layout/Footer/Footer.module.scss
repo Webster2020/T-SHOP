@@ -1,0 +1,48 @@
+@import '../../../styles/settings.scss';
+@import '../../../styles/global.scss';
+
+.root {
+  display: block;
+  height: 100px;
+  width: 100%;
+  top: 0;
+  left: 0;
+  background-image: linear-gradient(to right, $color-main-one , $color-dark);
+  z-index: 100;
+}
+
+.row {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  margin-top: $base-size * 0.2;
+}
+
+.rowInner {
+  @extend .row;
+  margin-top: 0; 
+}
+
+.col3 {
+  flex: 3;
+  margin: 0 $base-size * 0.2;
+}
+
+.col {
+  flex: 1;
+  margin: 0 $base-size * 0.2;
+}
+
+.logo {
+  padding-left: $base-size * 4;
+  font-family: $font-special;
+  text-align: start;
+  line-height: 0.7;
+}
+
+.iconWrapper {
+  padding: $base-size * 0.1;
+  margin: $base-size * 0 $base-size * 0.5;
+  font-size: $base-size * 3;
+}

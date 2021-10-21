@@ -13,6 +13,7 @@ const Component = ({
   height,
   width,
   link,
+  stable,
   className: propClassName,
   ...props
 }) => {
@@ -30,6 +31,10 @@ const Component = ({
     Comp = 'button';
   }
 
+  if (stable) {
+    Comp = 'div';
+  }
+
   return (
     <Comp href='#' {...props} className={classes.join(' ')}>
       {children}
@@ -44,6 +49,7 @@ Component.propTypes = {
   height: PropTypes.string,
   width: PropTypes.string,
   link: PropTypes.bool,
+  stable: PropTypes.bool,
   className: PropTypes.string,
 };
 

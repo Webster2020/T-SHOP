@@ -1,4 +1,4 @@
-import React, { useEffect } from 'react';
+import React, { useState, useEffect } from 'react';
 import PropTypes from 'prop-types';
 import clsx from 'clsx';
 
@@ -7,19 +7,42 @@ import clsx from 'clsx';
 
 import styles from './Product.module.scss';
 
+import { Button } from '../../common/Button/Button';
+import { Modal } from '../Modal/Modal'; 
 import { Tshirt } from '../../common/Tshirt/Tshirt';
 import { ProductButtons } from '../ProductButtons/ProductButtons';
 
 const Component = ({className, type, featuresDB}) => {
 
+  const [modal, setModal] = useState(false);
+
   useEffect(() => {
     // console.log(features);
   });
 
+  const openModal = e => {
+    e.preventDefault();
+    setModal(true);
+  };
+
+  const closeModal = e => {
+    e.preventDefault();
+    setModal(false);
+  };
+
   return (
     <div className={clsx(className, styles.root)}>
-      <Tshirt type={type} featuresDB={featuresDB}/>
-      <ProductButtons />
+      <Button onClick={e => openModal(e)}>
+        <Tshirt type={type} featuresDB={featuresDB}/>
+      </Button>
+      {modal && 
+        <Button variant='overlay' onClick={e => closeModal(e)}>
+          <Modal>
+            <Tshirt type={type} featuresDB={featuresDB}/>
+          </Modal>
+        </Button>
+      }
+      <ProductButtons featuresDB={featuresDB}/>
     </div>
   );
 };

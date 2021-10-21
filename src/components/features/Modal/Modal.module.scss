@@ -1,0 +1,27 @@
+@import '../../../styles/settings.scss';
+@import '../../../styles/global.scss';
+
+.overlay {
+  position: fixed;
+  display: block;
+  height: 100%;
+  width: 100%;
+  top: 0;
+  left: 0;
+  opacity: 0.99;
+  z-index: 1000;
+  transform: scale(2);
+}
+
+.modal {
+  position: absolute;
+  display: block;
+  height: 200px;
+  width: 240px;
+  top: calc(50% - 100px);
+  left: calc(50% - 120px);
+  background: $color-dark;
+  // border: 5px solid red;
+  opacity: 1;
+  z-index: 1001;
+}

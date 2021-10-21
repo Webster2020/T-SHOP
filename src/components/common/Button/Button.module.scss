@@ -12,6 +12,7 @@
   text-align: center;
   transition: $transition-slower;
   &:hover {
+    cursor: pointer;
     transform: scale(0.95);
     transition: $transition-fast;
   }
@@ -32,6 +33,30 @@
 .nav {
   @extend .glass;
   padding: $base-size * 3.75 0;
+}
+
+.footer {
+  @extend .nav;
+  &:hover {
+    transform: none;
+  }
+}
+
+.glassFooter {
+  @extend .glass;
+  padding: $base-size * 2.8;
+  background: inherit;
+  border: none;
+}
+
+.overlay {
+  box-shadow: none;
+  border: none;
+  background: inherit;
+  &:hover {
+    transform: none;
+    cursor: auto;
+  }
 }
 
 .hghFull {

@@ -6,6 +6,7 @@ import { store } from './redux/store';
 import { Navbar } from './components/layout/Navbar/Navbar';
 import { MainLayout } from './components/layout/MainLayout/MainLayout';
 import { Home } from './components/views/Home/Home';
+import { Footer } from './components/layout/Footer/Footer';
 
 const App = () => (
   <Provider store={store}>
@@ -17,6 +18,7 @@ const App = () => (
         </Switch>
       </MainLayout>
     </BrowserRouter>
+    <Footer />
   </Provider>
 );
 
