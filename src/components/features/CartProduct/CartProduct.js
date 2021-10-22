@@ -14,76 +14,90 @@ import { GlassWrapper } from '../../layout/GlassWrapper/GlassWrapper';
 import { Button } from '../../common/Button/Button';
 import { Tshirt } from '../../common/Tshirt/Tshirt';
 
-const Component = () => (
-  <Row variant={'verTop'}>
-    <Column>
-      <Button>
+const Component = () => {
+
+  const productCost = 99;
+  const ammount = 1;
+  const totalCost = productCost * ammount;
+
+  return (
+    <Row variant={'verTop'}>
+
+      <Column>
+        <Button>
+          <GlassWrapper>
+            <div className={styles.buttonContent}>
+              <h2>x</h2>
+            </div>
+          </GlassWrapper>
+        </Button>
+
+        <Button>
+          <GlassWrapper>
+            <div className={styles.buttonContent}>
+              <h2>
+                <TiDocumentText style={{ marginTop: '5px' }} />
+              </h2>
+            </div>
+          </GlassWrapper>
+        </Button>
+
         <GlassWrapper>
-          <div className={styles.buttonContent}>
-            <h2>x</h2>
+          <div className={styles.blindContent} style={{height: '45px'}}></div>
+        </GlassWrapper>
+      </Column>
+
+      <Column flex={'f6'}>
+        <GlassWrapper>
+          <div className={styles.product}>
+            <Column flex={'f6'}>
+              <Tshirt view={'cart'} />
+            </Column>
           </div>
         </GlassWrapper>
-      </Button>
-      <Button>
+      </Column>
+
+      <Column>
         <GlassWrapper>
-          <div className={styles.buttonContent}>
-            <h2>
-              <TiDocumentText style={{ marginTop: '5px' }} />
-            </h2>
+          <div className={styles.content}>
+            <h3>cost: {productCost}$</h3>
           </div>
         </GlassWrapper>
-      </Button>
-      <GlassWrapper>
-        <div className={styles.blindContent} style={{height: '45px'}}></div>
-      </GlassWrapper>
-    </Column>
-    <Column flex={'f6'}>
-      <GlassWrapper>
-        <div className={styles.product}>
-          <Column flex={'f6'}>
-            <Tshirt view={'cart'} />
-          </Column>
-        </div>
-      </GlassWrapper>
-    </Column>
-    <Column>
-      <GlassWrapper>
-        <div className={styles.content}>
-          <h3>cost: 99$</h3>
-        </div>
-      </GlassWrapper>
-      <GlassWrapper>
-        <div className={styles.content}>
-          <h3>total: 99$</h3>
-        </div>
-      </GlassWrapper>
-      <GlassWrapper>
-        <div className={styles.blindContent} style={{height: '23px'}}></div>
-      </GlassWrapper>
-    </Column>
-    <Column>
-      <Button>
+        <GlassWrapper>
+          <div className={styles.content}>
+            <h3>total: {totalCost}$</h3>
+          </div>
+        </GlassWrapper>
+        <GlassWrapper>
+          <div className={styles.blindContent} style={{height: '23px'}}></div>
+        </GlassWrapper>
+      </Column>
+
+      <Column>
+        <Button>
+          <GlassWrapper>
+            <div className={styles.buttonAmountContent}>
+              <h2>+</h2>
+            </div>
+          </GlassWrapper>
+        </Button>
         <GlassWrapper>
           <div className={styles.buttonAmountContent}>
-            <h2>+</h2>
+            <h2>{ammount}</h2>
           </div>
         </GlassWrapper>
-      </Button>
-      <GlassWrapper>
-        <div className={styles.buttonAmountContent}>
-          <h2>0</h2>
-        </div>
-      </GlassWrapper>
-      <Button>
-        <GlassWrapper>
-          <div className={styles.buttonAmountContent}>
-            <h2>-</h2>
-          </div>
-        </GlassWrapper>
-      </Button>
-    </Column>
-  </Row>
-);
+        <Button>
+          <GlassWrapper>
+            <div className={styles.buttonAmountContent}>
+              <h2>-</h2>
+            </div>
+          </GlassWrapper>
+        </Button>
+      </Column>
+
+    </Row>
+  );
+};
 
 Component.propTypes = {
   children: PropTypes.node,

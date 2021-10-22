@@ -26,7 +26,11 @@ const Component = () => {
               <h1>Cart</h1>
             </div>
           </GlassWrapper>
+
           <CartProduct />
+          <CartProduct />
+          <CartProduct />
+
           <CartInfo />
         </Column>
 
@@ -36,7 +40,9 @@ const Component = () => {
               <h1>Summary</h1>
             </div>
           </GlassWrapper>
+
           <CartSummary />
+          
           <Button>
             <GlassWrapper>
               <div className={styles.cartContent}>
