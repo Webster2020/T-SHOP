@@ -49,7 +49,6 @@ const Component = ({className, featuresDB}) => {
         <Button 
           key={shortid.generate()} 
           variant="glass" 
-          style={{margin: '2px 0'}}
           onClick={e => clickHandler(e, el.type)}
         >
           <div className={styles.iconWrapper}>

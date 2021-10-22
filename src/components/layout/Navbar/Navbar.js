@@ -8,6 +8,8 @@ import shortid from 'shortid';
 import styles from './Navbar.module.scss';
 
 import { Button } from '../../common/Button/Button';
+import { Row } from '../../layout/Row/Row';
+import { Column } from '../../layout/Column/Column';
 
 const Component = () => {
 
@@ -15,13 +17,13 @@ const Component = () => {
 
   return (
     <nav className={styles.root}>
-      <div className={styles.row}>
+      <Row>
         {menu.map(el => (
-          <div key={shortid.generate()} className={styles.col}>
+          <Column key={shortid.generate()} className={styles.navCol}>
             <Button variant='nav' width='wdtFull'>{el}</Button>
-          </div>
+          </Column>
         ))}
-      </div>
+      </Row>
     </nav>
   );
 };

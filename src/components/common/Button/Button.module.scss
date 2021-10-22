@@ -3,7 +3,7 @@
 
 
 .default {
-  display: block;
+  display: flex;
   text-decoration: none;
   transition: $transition-fast;
   &:hover {

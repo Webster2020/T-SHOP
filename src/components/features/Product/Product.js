@@ -11,8 +11,9 @@ import { Button } from '../../common/Button/Button';
 import { Modal } from '../Modal/Modal'; 
 import { Tshirt } from '../../common/Tshirt/Tshirt';
 import { ProductButtons } from '../ProductButtons/ProductButtons';
+import { Row } from '../../layout/Row/Row';
 
-const Component = ({className, type, featuresDB}) => {
+const Component = ({className, view, type, featuresDB}) => {
 
   const [modal, setModal] = useState(false);
 
@@ -31,24 +32,25 @@ const Component = ({className, type, featuresDB}) => {
   };
 
   return (
-    <div className={clsx(className, styles.root)}>
+    <Row className={styles.root}>
       <Button onClick={e => openModal(e)}>
-        <Tshirt type={type} featuresDB={featuresDB}/>
+        <Tshirt view={view} type={type} featuresDB={featuresDB}/>
       </Button>
       {modal && 
         <Button variant='overlay' onClick={e => closeModal(e)}>
           <Modal>
-            <Tshirt type={type} featuresDB={featuresDB}/>
+            <Tshirt view={view} type={type} featuresDB={featuresDB}/>
           </Modal>
         </Button>
       }
       <ProductButtons featuresDB={featuresDB}/>
-    </div>
+    </Row>
   );
 };
 
 Component.propTypes = {
   className: PropTypes.string,
+  view: PropTypes.string,
   type: PropTypes.string,
   featuresDB: PropTypes.object,
 };

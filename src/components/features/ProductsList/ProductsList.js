@@ -9,36 +9,37 @@ import { products as featuresFromDB } from '../../../data/dbProducts'; // from s
 import styles from './ProductsList.module.scss';
 
 import { Product } from '../Product/Product';
+import { Row } from '../../layout/Row/Row';
 
-const Component = ({className, variant}) => {
+const Component = ({variant}) => {
 
   useEffect(() => {
     // console.log(tShirtsFeatures);
   });
 
   return (
-    <div>
-      {variant === 'all' &&
-        <article className={clsx(className, styles.root)}>
-          {featuresFromDB.map(featuresDB => ( //filtere feturesDB in store (features.id < 4)
-            <Product key={featuresDB.id} type='common' featuresDB={featuresDB}/>         
-          ))}
-        </article>
-      }
+    <article>
       {variant === 'top' &&
-        <article className={clsx(className, styles.root)}>
+        <Row variant='wrap' justify='sb'>
           <h1 className={styles.title}>TOP 3</h1>
           {featuresFromDB.map(featuresDB => (
-            <Product key={featuresDB.id} type='common' featuresDB={featuresDB}/>         
+            <Product key={featuresDB.id} view='home' type='common' featuresDB={featuresDB}/>         
           ))}
-        </article>
+        </Row>
       }
-    </div>
+      {variant === 'all' &&
+        <Row variant='wrap' justify='sb'>
+          <h1 className={styles.title}>PRODUCTS</h1>
+          {featuresFromDB.map(featuresDB => ( //filtere feturesDB in store (features.id < 4)
+            <Product key={featuresDB.id} view='home' type='common' featuresDB={featuresDB}/>         
+          ))}
+        </Row>
+      }
+    </article>
   );
 };
 
 Component.propTypes = {
-  className: PropTypes.string,
   variant: PropTypes.string,
 };
 

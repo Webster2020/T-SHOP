@@ -4,23 +4,16 @@
 .root {
   position: fixed;
   display: block;
+  padding-top: $base-size * 0.2;
   height: 100px;
   width: 100%;
   top: 0;
   left: 0;
+  // background-color: inherit;
   background-image: linear-gradient(to right, $color-main-one , $color-dark);
   z-index: 100;
 }
 
-.row {
-  display: flex;
-  flex-direction: row;
-  justify-content: center;
-  align-items: center;
-  margin-top: $base-size * 0.2;
-}
-
-.col {
-  flex: 1;
+.navCol {
   margin: 0 $base-size * 0.2;
 }

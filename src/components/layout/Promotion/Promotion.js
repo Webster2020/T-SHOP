@@ -1,7 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import shortid from 'shortid';
-import clsx from 'clsx';
 
 // import { connect } from 'react-redux';
 // import { reduxSelector, reduxActionCreator } from '../../../redux/exampleRedux.js';
@@ -9,16 +8,18 @@ import clsx from 'clsx';
 import styles from './Promotion.module.scss';
 
 import { Bricks } from '../../features/Bricks/Bricks';
+import { Row } from '../Row/Row';
 
-const Component = ({className, variant}) => {
+const Component = ({variant}) => {
 
   const benefits = ['FREE SHIPPING', '60-DAYS REFUND', '24/7 SUPPORT'];
 
   return (
-    <div className={clsx(className, styles.root)}>
+    <div className={styles.root}>
+
       {variant === 'promo' && 
         (
-          <div className={styles.sectionRow}>
+          <Row variant='wrap'>
             <div className={`${styles.sectionCol} ${styles.sectionPromo}`}>
               <h1>CREATE</h1>
               <h1>CUSTOM</h1>
@@ -27,27 +28,28 @@ const Component = ({className, variant}) => {
             <div className={styles.sectionCol}>
               <Bricks />
             </div>
-          </div>
+          </Row>
         )
       }
+
       {variant === 'benefits' && 
         (
-          <div className={styles.sectionRow}>
+          <Row variant='wrap'>
             {benefits.map(el => (
               <div key={shortid.generate()} className={`${styles.sectionCol} ${styles.sectionBenefits}`}>
                 <h1>{el}</h1>
               </div> 
             ))}
-          </div>
+          </Row>
         )
       }
+
     </div>
   );
 
 };
 
 Component.propTypes = {
-  className: PropTypes.string,
   variant: PropTypes.string,
 };
 

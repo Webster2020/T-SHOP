@@ -22,3 +22,18 @@
   align-items: flex-start;
 }
 
+.wrap {
+  @extend .row;
+  flex-wrap: wrap;
+}
+
+.sb {
+  justify-content: space-between;
+}
+
+.root {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  margin: $base-size * 2 $base-size * 1.5;
+}
