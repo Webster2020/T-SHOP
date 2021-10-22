@@ -1,0 +1,13 @@
+@import '../../../styles/settings.scss';
+
+.root {
+  display: block;
+  margin: $base-size * 1;
+  box-shadow: $box-shadow-sm;
+  font-family: $font-main;
+  font-size: $base-size * 2;
+  color: $color-white;
+  text-decoration: none;
+  text-align: center;
+  border: 1px solid transparent;
+}

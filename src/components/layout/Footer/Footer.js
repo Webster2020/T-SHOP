@@ -10,7 +10,6 @@ import styles from './Footer.module.scss';
 import { links } from '../../../data/dbLinks';
 
 import { Button } from '../../common/Button/Button';
-import { Logo } from '../../common/Logo/Logo';
 
 const Component = () => {
 

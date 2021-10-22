@@ -1,22 +1,34 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 
-import clsx from 'clsx';
-
 // import { connect } from 'react-redux';
 // import { reduxSelector, reduxActionCreator } from '../../../redux/exampleRedux.js';
 
 import styles from './Container.module.scss';
 
-const Component = ({className, children}) => (
-  <section className={clsx(className, styles.root)}>
-    {children}
-  </section>
-);
+const Component = ({
+  className: propClassName, 
+  children, 
+  variant,
+  ...props
+}) => {
+  const classes = [];
+
+  if (propClassName) classes.push(propClassName);
+  if (variant) classes.push(styles[variant]);
+  else classes.push(styles.root);
+
+  return (
+    <section {...props} className={classes.join(' ')}>
+      {children}
+    </section>
+  );
+};
 
 Component.propTypes = {
-  children: PropTypes.node,
   className: PropTypes.string,
+  children: PropTypes.node,
+  variant: PropTypes.string,
 };
 
 // const mapStateToProps = state => ({

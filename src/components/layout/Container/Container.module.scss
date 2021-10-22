@@ -10,3 +10,8 @@
 .w100p {
   width: 100%;
 }
+
+.my {
+  @extend .root;
+  padding: $base-size * 5 0 0;
+}

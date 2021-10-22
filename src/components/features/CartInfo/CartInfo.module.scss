@@ -1,0 +1,7 @@
+@import '../../../styles/settings.scss';
+@import '../../../styles/global.scss';
+
+.infoContent {
+  display: block;
+  margin: $base-size * 1.5 $base-size * 2;
+}

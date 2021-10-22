@@ -1,0 +1,46 @@
+@import '../../../styles/settings.scss';
+@import '../../../styles/global.scss';
+
+.column {
+  flex: 1;
+}
+
+.horizontal {
+  @extend .column;
+  display: flex;
+  flex-direction: row;
+}
+
+.horStart {
+  @extend .column;
+  text-align: start;
+}
+
+.horEnd {
+  @extend .column;
+  text-align: end;
+}
+
+.f2 {
+  flex: 2;
+}
+
+.f3 {
+  flex: 3;
+}
+
+.f4 {
+  flex: 4;
+}
+
+.f6 {
+  flex: 6;
+}
+
+.f8 {
+  flex: 8;
+}
+
+.f10 {
+  flex: 10;
+}

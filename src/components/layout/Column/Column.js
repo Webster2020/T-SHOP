@@ -4,53 +4,36 @@ import PropTypes from 'prop-types';
 // import { connect } from 'react-redux';
 // import { reduxSelector, reduxActionCreator } from '../../../redux/exampleRedux.js';
 
-import styles from './Button.module.scss';
+import styles from './Column.module.scss';
 
 const Component = ({
   children,
-  variant,
-  color,
-  height,
-  width,
-  link,
-  stable,
+  flex,
+  direction,
+  justify,
   className: propClassName,
   ...props
 }) => {
   const classes = [];
 
   if (propClassName) classes.push(propClassName);
-  if (color) classes.push(styles[color]);
-  if (height) classes.push(styles[height]);
-  if (width) classes.push(styles[width]);
-  if (variant) classes.push(styles[variant]);
-  else classes.push(styles.default);
-
-  let Comp = 'a';
-
-  if (link) {
-    Comp = 'button';
-  }
-
-  if (stable) {
-    Comp = 'div';
-  }
+  if (flex) classes.push(styles[flex]);
+  if (direction) classes.push(styles[direction]);
+  if (justify) classes.push(styles[justify]);
+  else classes.push(styles.column);
 
   return (
-    <Comp href='#' {...props} className={classes.join(' ')}>
+    <div {...props} className={classes.join(' ')}>
       {children}
-    </Comp>
+    </div>
   );
 };
 
 Component.propTypes = {
   children: PropTypes.node,
-  variant: PropTypes.string,
-  color: PropTypes.string,
-  height: PropTypes.string,
-  width: PropTypes.string,
-  link: PropTypes.bool,
-  stable: PropTypes.bool,
+  flex: PropTypes.string,
+  direction: PropTypes.string,
+  justify: PropTypes.string,
   className: PropTypes.string,
 };
 
@@ -65,7 +48,7 @@ Component.propTypes = {
 // const Container = connect(mapStateToProps, mapDispatchToProps)(Component);
 
 export {
-  Component as Button,
-  // Container as Button,
-  Component as ButtonComponent,
+  Component as Column,
+  // Container as Column,
+  Component as ColumnComponent,
 };

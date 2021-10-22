@@ -6,7 +6,7 @@ import PropTypes from 'prop-types';
 
 import styles from './Tshirt.module.scss';
 
-const Component = ({type, featuresDB}) => {
+const Component = ({view, type, featuresDB}) => {
 
   useEffect(() => {
     type === 'common' ? console.log(featuresDB.colors) : console.log('custom..');
@@ -26,7 +26,7 @@ const Component = ({type, featuresDB}) => {
   const colorSource = type === 'common' ? featuresDB.colors : colors; 
 
   return (
-    <article className={styles.root}>
+    <article className={`${view === 'home' && styles.root} ${view === 'cart' && styles.rootInCart}`}>
       <div className={styles.tShirt}>
         <div
           style={{ backgroundColor: colorSource.main }}
@@ -77,6 +77,7 @@ const Component = ({type, featuresDB}) => {
 };
 
 Component.propTypes = {
+  view: PropTypes.string,
   type: PropTypes.string,
   featuresDB: PropTypes.object,
 };

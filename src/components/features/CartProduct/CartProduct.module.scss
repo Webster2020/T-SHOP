@@ -1,0 +1,18 @@
+@import '../../../styles/settings.scss';
+@import '../../../styles/global.scss';
+
+.buttonContent, .content, .blindContent {
+  display: block;
+  margin: $base-size * 1.5 $base-size * 2;
+}
+
+.buttonAmountContent {
+  display: block;
+  margin: $base-size * 1.95 $base-size * 2;
+}
+
+.product {
+  display: block;
+  margin: $base-size * 1.5 $base-size * 2;
+  min-height: 175px;
+}

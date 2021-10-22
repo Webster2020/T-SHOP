@@ -1,6 +1,17 @@
 @import "../../../styles/settings.scss";
 @import '../../../styles/global.scss';
 
+
+.default {
+  display: block;
+  text-decoration: none;
+  transition: $transition-fast;
+  &:hover {
+    transform: scale(0.95);
+    transition: $transition-fast;
+  }
+}
+
 .glass {
   display: inline-block;
   padding: $base-size * 1 0;
@@ -10,7 +21,7 @@
   color: $color-white;
   text-decoration: none;
   text-align: center;
-  transition: $transition-slower;
+  transition: $transition-fast;
   &:hover {
     cursor: pointer;
     transform: scale(0.95);

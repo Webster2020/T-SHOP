@@ -19,6 +19,15 @@ $tShirt-size: 1.5;
   }
 }
 
+.rootInCart {
+  @extend .root;
+  display: inline-block;
+  box-shadow: none;
+  &:hover {
+    transform: scale(1);
+  }
+}
+
 .tShirt {
   display: block;
   padding: $base-size * 2 * $tShirt-size $base-size * 5 * $tShirt-size;
