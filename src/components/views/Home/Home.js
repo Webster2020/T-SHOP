@@ -4,7 +4,7 @@ import React from 'react';
 // import { connect } from 'react-redux';
 // import { reduxSelector, reduxActionCreator } from '../../../redux/exampleRedux.js';
 
-import styles from './Home.module.scss';
+// import styles from './Home.module.scss';
 
 import { Container } from '../../layout/Container/Container';
 import { Header } from '../../layout/Header/Header';
@@ -12,7 +12,7 @@ import { ProductsList } from '../../features/ProductsList/ProductsList';
 import { Promotion } from '../../layout/Promotion/Promotion';
 
 const Component = () => (
-  <div className={styles.root}>
+  <div>
     <Header />
     <Container>
       <ProductsList variant='top'/>

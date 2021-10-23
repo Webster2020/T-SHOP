@@ -32,7 +32,7 @@ const Component = ({variant, productsAll, productsTopThree}) => {
       {variant === 'all' &&
         <Row variant='wrap' justify='sb'>
           <h1 className={styles.title}>PRODUCTS</h1>
-          {productsAll.map(featuresDB => ( //filtere feturesDB in store (features.id < 4)
+          {productsAll.map(featuresDB => (
             <Product key={featuresDB.id} view='home' type='common' featuresDB={featuresDB}/>         
           ))}
         </Row>

@@ -8,13 +8,13 @@ import { TiDocumentText } from 'react-icons/ti';
 
 import styles from './CartProduct.module.scss';
 
-import { Row } from '../../layout/Row/Row';
+import { Button } from '../../common/Button/Button';
 import { Column } from '../../layout/Column/Column';
 import { GlassWrapper } from '../../layout/GlassWrapper/GlassWrapper';
-import { Button } from '../../common/Button/Button';
+import { Row } from '../../layout/Row/Row';
 import { Tshirt } from '../../common/Tshirt/Tshirt';
 
-const Component = () => {
+const Component = ({product}) => {
 
   const productCost = 99;
   const ammount = 1;
@@ -106,6 +106,7 @@ const Component = () => {
 Component.propTypes = {
   children: PropTypes.node,
   className: PropTypes.string,
+  product: PropTypes.object,
 };
 
 // const mapStateToProps = state => ({

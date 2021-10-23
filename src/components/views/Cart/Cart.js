@@ -4,57 +4,36 @@ import React from 'react';
 // import { connect } from 'react-redux';
 // import { reduxSelector, reduxActionCreator } from '../../../redux/exampleRedux.js';
 
-import styles from './Cart.module.scss';
+// import styles from './Cart.module.scss';
 
-import { Row } from '../../layout/Row/Row';
+import { CartHeader } from '../../features/CartHeader/CartHeader';
+import { CartInfo } from '../../features/CartInfo/CartInfo';
+import { CartOrder } from '../../features/CartOrder/CartOrder';
+import { CartProductsList } from '../../features/CartProductsList/CartProductsList';
+import { CartSummary } from '../../features/CartSummary/CartSummary';
 import { Column } from '../../layout/Column/Column';
 import { Container } from '../../layout/Container/Container';
-import { GlassWrapper } from '../../layout/GlassWrapper/GlassWrapper';
-import { Button } from '../../common/Button/Button';
-import { CartProduct } from '../../features/CartProduct/CartProduct';
-import { CartSummary } from '../../features/CartSummary/CartSummary';
-import { CartInfo } from '../../features/CartInfo/CartInfo';
+import { Row } from '../../layout/Row/Row';
 
 const Component = () => {
+
   return (
     <Container variant={'my'}>
       <Row>
-
         <Column flex={'f6'}>
-          <GlassWrapper>
-            <div className={styles.cartContent}>
-              <h1>Cart</h1>
-            </div>
-          </GlassWrapper>
-
-          <CartProduct />
-          <CartProduct />
-          <CartProduct />
-
+          <CartHeader text='Cart' />
+          <CartProductsList />
           <CartInfo />
         </Column>
-
         <Column flex={'f6'}>    
-          <GlassWrapper>
-            <div className={styles.cartContent}>
-              <h1>Summary</h1>
-            </div>
-          </GlassWrapper>
-
-          <CartSummary />
-          
-          <Button variant='cartGlass'>
-            <GlassWrapper>
-              <div className={styles.cartContent}>
-                <h3>Order</h3>
-              </div>
-            </GlassWrapper>
-          </Button>
+          <CartHeader text='Summary' />
+          <CartSummary /> 
+          <CartOrder />     
         </Column>
-
       </Row>
     </Container>
   );
+
 };
 
 // Component.propTypes = {

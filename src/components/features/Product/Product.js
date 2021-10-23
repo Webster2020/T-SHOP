@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState } from 'react';
 import PropTypes from 'prop-types';
 
 // import { connect } from 'react-redux';
@@ -12,13 +12,9 @@ import { Tshirt } from '../../common/Tshirt/Tshirt';
 import { ProductButtons } from '../ProductButtons/ProductButtons';
 import { Row } from '../../layout/Row/Row';
 
-const Component = ({className, view, type, featuresDB}) => {
+const Component = ({view, type, featuresDB}) => {
 
   const [modal, setModal] = useState(false);
-
-  useEffect(() => {
-    // console.log(features);
-  });
 
   const openModal = e => {
     e.preventDefault();
@@ -48,7 +44,6 @@ const Component = ({className, view, type, featuresDB}) => {
 };
 
 Component.propTypes = {
-  className: PropTypes.string,
   view: PropTypes.string,
   type: PropTypes.string,
   featuresDB: PropTypes.object,
