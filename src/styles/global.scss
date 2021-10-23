@@ -7,7 +7,11 @@
 body {
   margin: 0;
   padding: 0;
-  background-image: linear-gradient(to right, $color-main-one , $color-dark);
+  // background-color: $color-main-two;
+  // background-image: linear-gradient(to right, $color-main-one , $color-dark);
+  // background-image: linear-gradient(to right, $color-main-two , $color-dark);
+  // background-image: linear-gradient(to right, $color-main-two , $color-main-one);
+  background-image: linear-gradient(to right, $color-main-one , $color-main-two);
   font-family: $font-main;
   font-size: ($base-size * 1.2);
   color: $color-dark;

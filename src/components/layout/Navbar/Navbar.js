@@ -1,6 +1,7 @@
 import React from 'react';
 // import PropTypes from 'prop-types';
 import shortid from 'shortid';
+import { Link } from 'react-router-dom';
 
 // import { connect } from 'react-redux';
 // import { reduxSelector, reduxActionCreator } from '../../../redux/exampleRedux.js';
@@ -13,14 +14,16 @@ import { Column } from '../../layout/Column/Column';
 
 const Component = () => {
 
-  const menu = ['HOME', 'CREATE', 'EXAMPLES', 'CART'];
+  const menu = ['home', 'create', 'examples', 'cart'];
 
   return (
     <nav className={styles.root}>
       <Row>
         {menu.map(el => (
           <Column key={shortid.generate()} className={styles.navCol}>
-            <Button variant='nav' width='wdtFull'>{el}</Button>
+            <Link to={'/' + el} style={{ textDecoration: 'none' }}>
+              <Button variant='nav' width='wdtFull' stable={true}>{el.toUpperCase()}</Button>
+            </Link>
           </Column>
         ))}
       </Row>

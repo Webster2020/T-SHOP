@@ -15,8 +15,8 @@ const Component = ({variant, productsAll, productsTopThree}) => {
 
   useEffect(() => {
     console.log('products');
-    console.log(productsAll);
-    console.log(productsTopThree);
+    // console.log(productsAll);
+    // console.log(productsTopThree);
   });
 
   return (

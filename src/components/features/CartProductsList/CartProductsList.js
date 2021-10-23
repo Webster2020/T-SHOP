@@ -20,7 +20,6 @@ const Component = ({productsInCart}) => {
       {productsInCart.length > 0 && productsInCart.map(product => (
         <CartProduct key={shortid.generate()} product={product}/>
       ))}
-      <CartProduct />
     </div>
   );
 };

@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState } from 'react';
 import PropTypes from 'prop-types';
 
 // import { connect } from 'react-redux';
@@ -8,9 +8,9 @@ import styles from './Tshirt.module.scss';
 
 const Component = ({view, type, featuresDB}) => {
 
-  useEffect(() => {
-    type === 'common' ? console.log(featuresDB.colors) : console.log('custom..');
-  });
+  // useEffect(() => {
+  //   type === 'common' ? console.log(featuresDB.colors) : console.log('custom..');
+  // });
 
   const [colors, setColors] = useState({
     main: 'white',

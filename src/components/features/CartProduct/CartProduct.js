@@ -1,8 +1,8 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import PropTypes from 'prop-types';
 
-// import { connect } from 'react-redux';
-// import { reduxSelector, reduxActionCreator } from '../../../redux/exampleRedux.js';
+import { connect } from 'react-redux';
+import { caDelFromCart } from '../../../redux/cartRedux.js';
 
 import { TiDocumentText } from 'react-icons/ti';
 
@@ -14,18 +14,22 @@ import { GlassWrapper } from '../../layout/GlassWrapper/GlassWrapper';
 import { Row } from '../../layout/Row/Row';
 import { Tshirt } from '../../common/Tshirt/Tshirt';
 
-const Component = ({product}) => {
+const Component = ({product, delFromCartDispatch}) => {
 
-  const productCost = 99;
+  useEffect(() => {
+    console.log(product.colors);
+  });
+
+  // const productCost = 99;
   const ammount = 1;
-  const totalCost = productCost * ammount;
-  const indexFromMap = 1;
+  const totalCost = product.price * ammount;
+  // const indexFromMap = 1;
 
   return (
     <Row variant={'verTop'}>
 
       <Column>
-        <Button variant='cartGlass'>
+        <Button variant='cartGlass' onClick={() => delFromCartDispatch(product)}>
           <GlassWrapper>
             <div className={styles.buttonContent}>
               <h2>x</h2>
@@ -35,7 +39,7 @@ const Component = ({product}) => {
 
         <GlassWrapper>
           <div className={styles.blindContent} style={{height: '45px'}}>
-            <h2>{indexFromMap}</h2>
+            <h2>{product.id}</h2>
           </div>
         </GlassWrapper>
 
@@ -55,7 +59,7 @@ const Component = ({product}) => {
         <GlassWrapper>
           <div className={styles.product}>
             <Column flex={'f6'}>
-              <Tshirt view={'cart'} />
+              <Tshirt view='cart' type='common' featuresDB={product}/>
             </Column>
           </div>
         </GlassWrapper>
@@ -64,7 +68,7 @@ const Component = ({product}) => {
       <Column>
         <GlassWrapper>
           <div className={styles.content}>
-            <h3>cost: {productCost}$</h3>
+            <h3>cost: {product.price}$</h3>
           </div>
         </GlassWrapper>
         <GlassWrapper>
@@ -107,20 +111,21 @@ Component.propTypes = {
   children: PropTypes.node,
   className: PropTypes.string,
   product: PropTypes.object,
+  delFromCartDispatch: PropTypes.func,
 };
 
 // const mapStateToProps = state => ({
 //   someProp: reduxSelector(state),
 // });
 
-// const mapDispatchToProps = dispatch => ({
-//   someAction: arg => dispatch(reduxActionCreator(arg)),
-// });
+const mapDispatchToProps = dispatch => ({
+  delFromCartDispatch: data => dispatch(caDelFromCart(data)),
+});
 
-// const Container = connect(mapStateToProps, mapDispatchToProps)(Component);
+const Container = connect(null, mapDispatchToProps)(Component);
 
 export {
-  Component as CartProduct,
-  // Container as CartProduct,
+  // Component as CartProduct,
+  Container as CartProduct,
   Component as CartProductComponent,
 };

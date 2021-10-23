@@ -1,17 +1,16 @@
 import React, { useState } from 'react';
 import PropTypes from 'prop-types';
 import shortid from 'shortid';
-import clsx from 'clsx';
 import { IoMdCart, IoMdHeart, IoMdHeartEmpty, IoIosEye } from 'react-icons/io';
 
-// import { connect } from 'react-redux';
-// import { reduxSelector, reduxActionCreator } from '../../../redux/exampleRedux.js';
+import { connect } from 'react-redux';
+import { caAddToCart } from '../../../redux/cartRedux.js';
 
 import styles from './ProductButtons.module.scss';
 
 import { Button } from '../../common/Button/Button';
 
-const Component = ({className, featuresDB}) => {
+const Component = ({featuresDB, addToCartDispatch}) => {
   
   const [like, setLike] = useState(false);
 
@@ -34,6 +33,7 @@ const Component = ({className, featuresDB}) => {
     e.preventDefault();
     if (type === 'cart') {
       console.log('add to cart');
+      addToCartDispatch(featuresDB);
     } else if (type === 'eye') {
       console.log('show product details');
       console.log(featuresDB);
@@ -44,7 +44,7 @@ const Component = ({className, featuresDB}) => {
   };
 
   return (
-    <div className={clsx(className, styles.root)}>
+    <div className={styles.root}>
       {icons.map(el => (
         <Button 
           key={shortid.generate()} 
@@ -61,23 +61,22 @@ const Component = ({className, featuresDB}) => {
 };
 
 Component.propTypes = {
-  className: PropTypes.string,
-  type: PropTypes.string,
   featuresDB: PropTypes.object,
+  addToCartDispatch: PropTypes.func,
 };
 
 // const mapStateToProps = state => ({
 //   someProp: reduxSelector(state),
 // });
 
-// const mapDispatchToProps = dispatch => ({
-//   someAction: arg => dispatch(reduxActionCreator(arg)),
-// });
+const mapDispatchToProps = dispatch => ({
+  addToCartDispatch: productData => dispatch(caAddToCart(productData)),
+});
 
-// const Container = connect(mapStateToProps, mapDispatchToProps)(Component);
+const Container = connect(null, mapDispatchToProps)(Component);
 
 export {
-  Component as ProductButtons,
-  // Container as ProductButtons,
+  // Component as ProductButtons,
+  Container as ProductButtons,
   Component as ProductButtonsComponent,
 };
