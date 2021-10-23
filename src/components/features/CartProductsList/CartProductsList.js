@@ -8,6 +8,9 @@ import { getAll } from '../../../redux/cartRedux.js';
 import styles from './CartProductsList.module.scss';
 
 import { CartProduct } from '../CartProduct/CartProduct';
+import { Column } from '../../layout/Column/Column';
+import { GlassWrapper } from '../../layout/GlassWrapper/GlassWrapper';
+import { Row } from '../../layout/Row/Row';
 
 const Component = ({productsInCart}) => {
 
@@ -17,9 +20,21 @@ const Component = ({productsInCart}) => {
 
   return (
     <div className={styles.root}>
-      {productsInCart.length > 0 && productsInCart.map(product => (
-        <CartProduct key={shortid.generate()} product={product}/>
-      ))}
+      {productsInCart.length >0 ? 
+        productsInCart.length > 0 && productsInCart.map(product => (
+          <CartProduct key={shortid.generate()} product={product}/>
+        ))
+        :
+        <Row variant={'verTop'}>
+          <Column>
+            <GlassWrapper>
+              <div className={styles.emptyCart}>
+                <h2>Cart is empty</h2>
+              </div>
+            </GlassWrapper>
+          </Column>
+        </Row>
+      }
     </div>
   );
 };

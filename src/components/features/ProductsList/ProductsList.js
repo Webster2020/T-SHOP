@@ -1,23 +1,17 @@
-import React, { useEffect } from 'react';
+import React from 'react';
 import PropTypes from 'prop-types';
 
 // import { products as featuresFromDB } from '../../../data/dbProducts'; // from store -> from DB Api
 
 import { connect } from 'react-redux';
-import { getAll, getTopThree } from '../../../redux/productRedux.js';
+import { getAll, getTopThree, getLiked } from '../../../redux/productRedux.js';
 
 import styles from './ProductsList.module.scss';
 
 import { Product } from '../Product/Product';
 import { Row } from '../../layout/Row/Row';
 
-const Component = ({variant, productsAll, productsTopThree}) => {
-
-  useEffect(() => {
-    console.log('products');
-    // console.log(productsAll);
-    // console.log(productsTopThree);
-  });
+const Component = ({variant, productsAll, productsTopThree, productsLiked}) => {
 
   return (
     <article>
@@ -37,6 +31,14 @@ const Component = ({variant, productsAll, productsTopThree}) => {
           ))}
         </Row>
       }
+      {variant === 'liked' &&
+        <Row variant='wrap' justify='sb'>
+          <h1 className={styles.title}>Favourites</h1>
+          {productsLiked.map(featuresDB => (
+            <Product key={featuresDB.id} view='home' type='common' featuresDB={featuresDB} className='styles.scaleDown'/>         
+          ))}
+        </Row>
+      }
     </article>
   );
 };
@@ -45,11 +47,13 @@ Component.propTypes = {
   variant: PropTypes.string,
   productsAll: PropTypes.array,
   productsTopThree: PropTypes.array,
+  productsLiked: PropTypes.array,
 };
 
 const mapStateToProps = state => ({
   productsAll: getAll(state),
   productsTopThree: getTopThree(state),
+  productsLiked: getLiked(state),
 });
 
 // const mapDispatchToProps = dispatch => ({

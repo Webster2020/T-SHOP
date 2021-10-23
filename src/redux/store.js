@@ -3,10 +3,12 @@ import thunk from 'redux-thunk';
 import { composeWithDevTools } from 'redux-devtools-extension';
 
 import { initialState } from './initialState';
+import { reducer as productReducer } from './productRedux';
 import { reducer as cartReducer } from './cartRedux';
 
 // define reducers
 const reducers = {
+  products: productReducer,
   cart: cartReducer,
 };
 

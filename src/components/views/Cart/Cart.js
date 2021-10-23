@@ -4,7 +4,7 @@ import React from 'react';
 // import { connect } from 'react-redux';
 // import { reduxSelector, reduxActionCreator } from '../../../redux/exampleRedux.js';
 
-// import styles from './Cart.module.scss';
+import styles from './Cart.module.scss';
 
 import { CartHeader } from '../../features/CartHeader/CartHeader';
 import { CartInfo } from '../../features/CartInfo/CartInfo';
@@ -13,7 +13,9 @@ import { CartProductsList } from '../../features/CartProductsList/CartProductsLi
 import { CartSummary } from '../../features/CartSummary/CartSummary';
 import { Column } from '../../layout/Column/Column';
 import { Container } from '../../layout/Container/Container';
+import { ProductsList } from '../../features/ProductsList/ProductsList';
 import { Row } from '../../layout/Row/Row';
+import { Break } from '../../layout/Break/Break';
 
 const Component = () => {
 
@@ -31,6 +33,8 @@ const Component = () => {
           <CartOrder />     
         </Column>
       </Row>
+      <Break />
+      <ProductsList variant='liked'/> 
     </Container>
   );
 

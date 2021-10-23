@@ -2,3 +2,12 @@
 
 // .root {
 // }
+
+.emptyCart {
+  display: block;
+  margin: $base-size * 1.5 $base-size * 2;
+  h2 {
+    margin: $base-size * 4 0;
+    text-align: center;
+  }
+}

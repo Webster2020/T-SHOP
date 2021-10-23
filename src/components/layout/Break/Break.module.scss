@@ -1,6 +1,8 @@
 @import '../../../styles/settings.scss';
 @import '../../../styles/global.scss';
 
-.scaleDown {
-  transform: scale(0.5);
+.root {
+  height: 100px;
+  width: 100%;
+  background-color: transparent;
 }

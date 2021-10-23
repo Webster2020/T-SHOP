@@ -5,12 +5,18 @@ import { IoMdCart, IoMdHeart, IoMdHeartEmpty, IoIosEye } from 'react-icons/io';
 
 import { connect } from 'react-redux';
 import { caAddToCart } from '../../../redux/cartRedux.js';
+import { caProductLike, caProductUnlike } from '../../../redux/productRedux.js';
 
 import styles from './ProductButtons.module.scss';
 
 import { Button } from '../../common/Button/Button';
 
-const Component = ({featuresDB, addToCartDispatch}) => {
+const Component = ({
+  featuresDB, 
+  addToCartDispatch, 
+  productLikeDispatch, 
+  productUnlikeDispatch,
+}) => {
   
   const [like, setLike] = useState(false);
 
@@ -21,7 +27,7 @@ const Component = ({featuresDB, addToCartDispatch}) => {
     }, 
     {
       type: 'heart',
-      icon: like ? <IoMdHeart size={35} /> : <IoMdHeartEmpty size={35} />,
+      icon: featuresDB.like ? <IoMdHeart size={35} /> : <IoMdHeartEmpty size={35} />,
     }, 
     {
       type: 'eye',
@@ -38,6 +44,8 @@ const Component = ({featuresDB, addToCartDispatch}) => {
       console.log('show product details');
       console.log(featuresDB);
     } else {
+      if (like && productUnlikeDispatch(featuresDB.id));
+      if (!like && productLikeDispatch(featuresDB.id));
       setLike(!like);
       console.log(`heart is ${like ? 'full' : 'empty'}`);
     }
@@ -63,6 +71,8 @@ const Component = ({featuresDB, addToCartDispatch}) => {
 Component.propTypes = {
   featuresDB: PropTypes.object,
   addToCartDispatch: PropTypes.func,
+  productLikeDispatch: PropTypes.func,
+  productUnlikeDispatch: PropTypes.func,
 };
 
 // const mapStateToProps = state => ({
@@ -71,6 +81,8 @@ Component.propTypes = {
 
 const mapDispatchToProps = dispatch => ({
   addToCartDispatch: productData => dispatch(caAddToCart(productData)),
+  productLikeDispatch: productId => dispatch(caProductLike(productId)),
+  productUnlikeDispatch: productId => dispatch(caProductUnlike(productId)),
 });
 
 const Container = connect(null, mapDispatchToProps)(Component);
