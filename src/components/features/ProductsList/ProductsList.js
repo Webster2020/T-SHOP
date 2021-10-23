@@ -1,20 +1,22 @@
 import React, { useEffect } from 'react';
 import PropTypes from 'prop-types';
-import clsx from 'clsx';
 
-import { products as featuresFromDB } from '../../../data/dbProducts'; // from store -> from DB Api
-// import { connect } from 'react-redux';
-// import { reduxSelector, reduxActionCreator } from '../../../redux/exampleRedux.js';
+// import { products as featuresFromDB } from '../../../data/dbProducts'; // from store -> from DB Api
+
+import { connect } from 'react-redux';
+import { getAll, getTopThree } from '../../../redux/productRedux.js';
 
 import styles from './ProductsList.module.scss';
 
 import { Product } from '../Product/Product';
 import { Row } from '../../layout/Row/Row';
 
-const Component = ({variant}) => {
+const Component = ({variant, productsAll, productsTopThree}) => {
 
   useEffect(() => {
-    // console.log(tShirtsFeatures);
+    console.log('products');
+    console.log(productsAll);
+    console.log(productsTopThree);
   });
 
   return (
@@ -22,7 +24,7 @@ const Component = ({variant}) => {
       {variant === 'top' &&
         <Row variant='wrap' justify='sb'>
           <h1 className={styles.title}>TOP 3</h1>
-          {featuresFromDB.map(featuresDB => (
+          {productsTopThree.map(featuresDB => (
             <Product key={featuresDB.id} view='home' type='common' featuresDB={featuresDB}/>         
           ))}
         </Row>
@@ -30,7 +32,7 @@ const Component = ({variant}) => {
       {variant === 'all' &&
         <Row variant='wrap' justify='sb'>
           <h1 className={styles.title}>PRODUCTS</h1>
-          {featuresFromDB.map(featuresDB => ( //filtere feturesDB in store (features.id < 4)
+          {productsAll.map(featuresDB => ( //filtere feturesDB in store (features.id < 4)
             <Product key={featuresDB.id} view='home' type='common' featuresDB={featuresDB}/>         
           ))}
         </Row>
@@ -41,20 +43,23 @@ const Component = ({variant}) => {
 
 Component.propTypes = {
   variant: PropTypes.string,
+  productsAll: PropTypes.array,
+  productsTopThree: PropTypes.array,
 };
 
-// const mapStateToProps = state => ({
-//   someProp: reduxSelector(state),
-// });
+const mapStateToProps = state => ({
+  productsAll: getAll(state),
+  productsTopThree: getTopThree(state),
+});
 
 // const mapDispatchToProps = dispatch => ({
 //   someAction: arg => dispatch(reduxActionCreator(arg)),
 // });
 
-// const Container = connect(mapStateToProps, mapDispatchToProps)(Component);
+const Container = connect(mapStateToProps)(Component);
 
 export {
-  Component as ProductsList,
-  // Container as ProductsList,
+  // Component as ProductsList,
+  Container as ProductsList,
   Component as ProductsListComponent,
 };

@@ -43,7 +43,7 @@ const Component = () => {
 
           <CartSummary />
           
-          <Button>
+          <Button variant='cartGlass'>
             <GlassWrapper>
               <div className={styles.cartContent}>
                 <h3>Order</h3>

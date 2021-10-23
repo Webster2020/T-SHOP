@@ -12,6 +12,12 @@
   }
 }
 
+.cartGlass {
+  @extend .default;
+  display: block;
+}
+
+
 .glass {
   display: inline-block;
   padding: $base-size * 1 0;

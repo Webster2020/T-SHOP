@@ -12,6 +12,9 @@ export const products = [
       collarStripe: 'transparent',
     },
     description: '',
+    like: false,
+    price: 50,
+    currency: '$',
   },
   {
     id: 2,
@@ -26,6 +29,9 @@ export const products = [
       collarStripe: 'transparent',
     },
     description: '',
+    like: false,
+    price: 40,
+    currency: '$',
   },
   {
     id: 3,
@@ -40,6 +46,9 @@ export const products = [
       collarStripe: 'yellow',
     },
     description: '',
+    like: false,
+    price: 35,
+    currency: '$',
   },
   {
     id: 4,
@@ -54,6 +63,9 @@ export const products = [
       collarStripe: 'black',
     },
     description: '',
+    like: false,
+    price: 55,
+    currency: '$',
   },
   {
     id: 5,
@@ -68,6 +80,9 @@ export const products = [
       collarStripe: 'black',
     },
     description: '',
+    like: false,
+    price: 45,
+    currency: '$',
   },
   {
     id: 6,
@@ -82,6 +97,9 @@ export const products = [
       collarStripe: 'white',
     },
     description: '',
+    like: false,
+    price: 35,
+    currency: '$',
   },
   {
     id: 7,
@@ -96,6 +114,9 @@ export const products = [
       collarStripe: 'black',
     },
     description: '',
+    like: false,
+    price: 35,
+    currency: '$',
   },
   {
     id: 8,
@@ -110,6 +131,9 @@ export const products = [
       collarStripe: 'transparent',
     },
     description: '',
+    like: false,
+    price: 50,
+    currency: '$',
   },
   {
     id: 9,
@@ -124,6 +148,9 @@ export const products = [
       collarStripe: 'green',
     },
     description: '',
+    like: false,
+    price: 55,
+    currency: '$',
   },
   {
     id: 10,
@@ -138,6 +165,9 @@ export const products = [
       collarStripe: 'green',
     },
     description: '',
+    like: false,
+    price: 30,
+    currency: '$',
   },
   {
     id: 11,
@@ -152,6 +182,9 @@ export const products = [
       collarStripe: 'green',
     },
     description: '',
+    like: false,
+    price: 40,
+    currency: '$',
   },
   {
     id: 12,
@@ -166,5 +199,8 @@ export const products = [
       collarStripe: 'transparent',
     },
     description: '',
+    like: false,
+    price: 50,
+    currency: '$',
   },
 ];

@@ -19,12 +19,13 @@ const Component = () => {
   const productCost = 99;
   const ammount = 1;
   const totalCost = productCost * ammount;
+  const indexFromMap = 1;
 
   return (
     <Row variant={'verTop'}>
 
       <Column>
-        <Button>
+        <Button variant='cartGlass'>
           <GlassWrapper>
             <div className={styles.buttonContent}>
               <h2>x</h2>
@@ -32,7 +33,13 @@ const Component = () => {
           </GlassWrapper>
         </Button>
 
-        <Button>
+        <GlassWrapper>
+          <div className={styles.blindContent} style={{height: '45px'}}>
+            <h2>{indexFromMap}</h2>
+          </div>
+        </GlassWrapper>
+
+        <Button variant='cartGlass'>
           <GlassWrapper>
             <div className={styles.buttonContent}>
               <h2>
@@ -42,9 +49,6 @@ const Component = () => {
           </GlassWrapper>
         </Button>
 
-        <GlassWrapper>
-          <div className={styles.blindContent} style={{height: '45px'}}></div>
-        </GlassWrapper>
       </Column>
 
       <Column flex={'f6'}>
@@ -74,7 +78,7 @@ const Component = () => {
       </Column>
 
       <Column>
-        <Button>
+        <Button variant='cartGlass'>
           <GlassWrapper>
             <div className={styles.buttonAmountContent}>
               <h2>+</h2>
@@ -86,7 +90,7 @@ const Component = () => {
             <h2>{ammount}</h2>
           </div>
         </GlassWrapper>
-        <Button>
+        <Button variant='cartGlass'>
           <GlassWrapper>
             <div className={styles.buttonAmountContent}>
               <h2>-</h2>
