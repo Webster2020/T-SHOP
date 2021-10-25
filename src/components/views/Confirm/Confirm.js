@@ -1,25 +1,18 @@
 import React from 'react';
 // import PropTypes from 'prop-types';
-import { Link } from 'react-router-dom';
 
 // import { connect } from 'react-redux';
 // import { reduxSelector, reduxActionCreator } from '../../../redux/exampleRedux.js';
 
-import styles from './CartOrder.module.scss';
+// import styles from './Confirm.module.scss';
 
-import { Button } from '../../common/Button/Button';
-import { GlassWrapper } from '../../layout/GlassWrapper/GlassWrapper';
+import { Container } from '../../layout/Container/Container'; 
+import { ConfirmForm } from '../../features/ConfirmForm/ConfirmForm';
 
 const Component = () => (
-  <Button variant='cartGlass'>
-    <Link to={'/confirm'} style={{ textDecoration: 'none' }}>
-      <GlassWrapper>
-        <div className={styles.cartOrder}>
-          <h3>Order</h3>
-        </div>
-      </GlassWrapper>
-    </Link>
-  </Button>
+  <Container variant='my'>
+    <ConfirmForm />
+  </Container>
 );
 
 // Component.propTypes = {
@@ -36,7 +29,7 @@ const Component = () => (
 // const Container = connect(mapStateToProps, mapDispatchToProps)(Component);
 
 export {
-  Component as CartOrder,
-  // Container as CartOrder,
-  Component as CartOrderComponent,
+  Component as Confirm,
+  // Container as Confirm,
+  Component as ConfirmComponent,
 };

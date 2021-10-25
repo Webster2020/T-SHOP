@@ -1,0 +1,52 @@
+@import '../../../styles/settings.scss';
+@import '../../../styles/global.scss';
+
+.root {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  margin: $base-size * 0.5 $base-size * 0.5;
+  padding: $base-size * 0.5 $base-size * 0.5;
+  // border: 1px solid $color-main-one;
+  font-family: $font-main;
+  font-size: $base-size * 2;
+  color: $color-white;
+  text-decoration: none;
+  transition: $transition-fast;
+  &:hover {
+    transform: scale(0.95);
+    transition: $transition-fast;
+  }
+  input, label {
+    display: block;
+    margin: 0 $base-size * 0.5;
+    padding: $base-size * 0.5;
+    border: none;
+    box-shadow: $box-shadow-sm;
+    background-color: inherit;
+    font-family: $font-main;
+    font-size: $base-size * 2;
+    color: $color-main-one;
+    text-align: center;
+    text-decoration: none;
+    transition: $transition-mid;
+  }
+  input {
+    width: 200px;
+    &:hover {
+      cursor: pointer;
+      transition: $transition-fast;
+    }
+    &:focus {
+      color: $color-white;
+      outline: none;
+    }
+    &:focus + label {
+      transition: $transition-mid;
+      color: $color-white;
+    }
+  }
+  label {
+    width: 90px;
+  }
+}

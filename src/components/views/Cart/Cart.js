@@ -4,7 +4,7 @@ import React from 'react';
 // import { connect } from 'react-redux';
 // import { reduxSelector, reduxActionCreator } from '../../../redux/exampleRedux.js';
 
-import styles from './Cart.module.scss';
+// import styles from './Cart.module.scss';
 
 import { CartHeader } from '../../features/CartHeader/CartHeader';
 import { CartInfo } from '../../features/CartInfo/CartInfo';

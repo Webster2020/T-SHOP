@@ -1,9 +1,9 @@
-import React from 'react';
-// import PropTypes from 'prop-types';
+import React, { useEffect } from 'react';
+import PropTypes from 'prop-types';
 import shortid from 'shortid';
 
-// import { connect } from 'react-redux';
-// import { reduxSelector, reduxActionCreator } from '../../../redux/exampleRedux.js';
+import { connect } from 'react-redux';
+import { getAll } from '../../../redux/cartRedux.js';
 
 import styles from './CartSummary.module.scss';
 
@@ -11,42 +11,57 @@ import { Row } from '../../layout/Row/Row';
 import { Column } from '../../layout/Column/Column';
 import { GlassWrapper } from '../../layout/GlassWrapper/GlassWrapper';
 
-const Component = () => {
+const Component = ({productsInCart}) => {
 
-  const summaryData = [
-    {
-      title: 'PRODUCT 1 COST:',
-      value: 180.00,
-    },
-    {
-      title: 'PRODUCT 2 COST:',
-      value: 210.00,
-    },
-    {
-      title: 'SHIPPING COST:',
-      value: 0.00,
-    },
-  ];
+  useEffect(() => {
+    console.log(productsInCart);
+  });
+
+  // const summaryData = [
+  //   {
+  //     title: 'PRODUCT 1 COST:',
+  //     value: 180.00,
+  //   },
+  //   {
+  //     title: 'PRODUCT 2 COST:',
+  //     value: 210.00,
+  //   },
+  // ];
+
+  const shippingCost = {
+    title: 'SHIPPING COST:',
+    value: 0.00,
+  };
 
   const summaryTotal = {
     title: 'TOTAL COST:',
-    value: summaryData.map(el => el.value).reduce((a,b) => a + b),
+    // value: summaryData.map(el => el.value).reduce((a,b) => a + b),
+    value: productsInCart.map(el => el.price).reduce((a,b) => a + b),
   };
 
   return (
     <GlassWrapper>
       <div className={styles.summaryContent}>
 
-        {summaryData.map(el => (
+        {productsInCart.map((el, index) => (
           <Row key={shortid.generate()}>
             <Column justify={'horStart'}>
-              <h4 className={styles.summaryElem}>{el.title}</h4>
+              <h4 className={styles.summaryElem}>{`${index + 1} PRODUCT`}</h4>
             </Column>
             <Column justify={'horEnd'}>
-              <h4 className={styles.summaryElem}>{el.value}$</h4>
+              <h4 className={styles.summaryElem}>{el.price}$</h4>
             </Column>
           </Row>
         ))}
+
+        <Row>
+          <Column justify={'horStart'}>
+            <h4 className={styles.summaryElem}>{shippingCost.title}</h4>
+          </Column>
+          <Column justify={'horEnd'}>
+            <h4 className={styles.summaryElem}>{shippingCost.value}$</h4>
+          </Column>
+        </Row>
 
         <Row>
           <Column justify={'horStart'}>
@@ -62,23 +77,22 @@ const Component = () => {
   );
 };
 
-// Component.propTypes = {
-//   children: PropTypes.node,
-//   className: PropTypes.string,
-// };
+Component.propTypes = {
+  productsInCart: PropTypes.array,
+};
 
-// const mapStateToProps = state => ({
-//   someProp: reduxSelector(state),
-// });
+const mapStateToProps = state => ({
+  productsInCart: getAll(state),
+});
 
 // const mapDispatchToProps = dispatch => ({
 //   someAction: arg => dispatch(reduxActionCreator(arg)),
 // });
 
-// const Container = connect(mapStateToProps, mapDispatchToProps)(Component);
+const Container = connect(mapStateToProps)(Component);
 
 export {
-  Component as CartSummary,
-  // Container as CartSummary,
+  // Component as CartSummary,
+  Container as CartSummary,
   Component as CartSummaryComponent,
 };

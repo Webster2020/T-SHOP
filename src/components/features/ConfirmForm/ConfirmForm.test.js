@@ -1,11 +1,11 @@
 import React from 'react';
 import { shallow } from 'enzyme';
-import { NavbarComponent } from './Navbar';
+import { OrderFormComponent } from './ConfirmForm';
 import { MemoryRouter } from 'react-router-dom';
 
-describe('Component Navbar', () => {
+describe('Component OrderForm', () => {
   it('should render without crashing', () => {
-    const component = shallow(<MemoryRouter><NavbarComponent /></MemoryRouter>);
+    const component = shallow(<MemoryRouter><OrderFormComponent /></MemoryRouter>);
     expect(component).toBeTruthy();
   });
 });

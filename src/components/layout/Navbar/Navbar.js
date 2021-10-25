@@ -1,10 +1,10 @@
 import React from 'react';
-// import PropTypes from 'prop-types';
+import PropTypes from 'prop-types';
 import shortid from 'shortid';
 import { Link } from 'react-router-dom';
 
-// import { connect } from 'react-redux';
-// import { reduxSelector, reduxActionCreator } from '../../../redux/exampleRedux.js';
+import { connect } from 'react-redux';
+import { getAll } from '../../../redux/cartRedux.js';
 
 import styles from './Navbar.module.scss';
 
@@ -12,7 +12,7 @@ import { Button } from '../../common/Button/Button';
 import { Row } from '../../layout/Row/Row';
 import { Column } from '../../layout/Column/Column';
 
-const Component = () => {
+const Component = ({productsInCart}) => {
 
   const menu = ['home', 'create', 'examples', 'cart'];
 
@@ -22,7 +22,9 @@ const Component = () => {
         {menu.map(el => (
           <Column key={shortid.generate()} className={styles.navCol}>
             <Link to={'/' + el} style={{ textDecoration: 'none' }}>
-              <Button variant='nav' width='wdtFull' stable={true}>{el.toUpperCase()}</Button>
+              <Button variant='nav' width='wdtFull' stable={true}>
+                {`${el.toUpperCase()} ${el === 'cart' ? ('(' + productsInCart.length + ')') : ''}`}
+              </Button>
             </Link>
           </Column>
         ))}
@@ -31,21 +33,22 @@ const Component = () => {
   );
 };
 
-// Component.propTypes = {
-// };
+Component.propTypes = {
+  productsInCart: PropTypes.array,
+};
 
-// const mapStateToProps = state => ({
-//   someProp: reduxSelector(state),
-// });
+const mapStateToProps = state => ({
+  productsInCart: getAll(state),
+});
 
 // const mapDispatchToProps = dispatch => ({
 //   someAction: arg => dispatch(reduxActionCreator(arg)),
 // });
 
-// const Container = connect(mapStateToProps, mapDispatchToProps)(Component);
+const Container = connect(mapStateToProps)(Component);
 
 export {
-  Component as Navbar,
-  // Container as Navbar,
+  // Component as Navbar,
+  Container as Navbar,
   Component as NavbarComponent,
 };

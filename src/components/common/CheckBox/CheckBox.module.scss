@@ -1,0 +1,86 @@
+@import '../../../styles/settings.scss';
+@import '../../../styles/global.scss';
+
+.root {
+  position: relative;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  margin: 0;
+  width: 320px;
+  height: 50px;
+  // border: 1px solid red;
+}
+
+.checkBox {
+  position: absolute;
+  display: block;
+  left: 50px;
+  margin: 5px 0;
+  padding: $base-size * 0.3 $base-size;
+  width: 265px;
+  box-shadow: $box-shadow-sm;
+  cursor: pointer;
+  font-family: $font-main;
+  font-size: $base-size * 2;
+  color: $color-main-one;
+  text-align: center;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+  transition: $transition-fast;
+  &:hover {
+    transform: scale(0.95);
+    transition: $transition-fast;
+  }
+}
+
+.checkBox input {
+  position: absolute;
+  height: 0;
+  width: 0;
+  opacity: 0;
+  cursor: pointer;
+}
+
+.checkMark {
+  position: absolute;
+  top: 0;
+  left: -35px;
+  height: 25px;
+  width: 25px;
+  background-color: inherit;
+  box-shadow: $box-shadow-sm;
+}
+
+.checkBox:hover input ~ .checkMark {
+  cursor: pointer;
+  transition: $transition-fast;
+}
+
+.checkBox input:checked ~ .checkMark {
+  color: $color-white;
+}
+
+.checkMark:after {
+  content: "";
+  position: absolute;
+  display: none;
+}
+
+.checkBox input:checked ~ .checkMark:after {
+  display: block;
+}
+
+.checkBox .checkMark:after {
+  left: 9px;
+  top: 5px;
+  width: 5px;
+  height: 10px;
+  border: solid $color-white;
+  border-width: 0 3px 3px 0;
+  -webkit-transform: rotate(45deg);
+  -ms-transform: rotate(45deg);
+  transform: rotate(45deg);
+}
