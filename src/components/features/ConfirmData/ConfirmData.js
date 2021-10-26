@@ -1,37 +1,42 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import PropTypes from 'prop-types';
 
-import clsx from 'clsx';
-
-// import { connect } from 'react-redux';
-// import { reduxSelector, reduxActionCreator } from '../../../redux/exampleRedux.js';
+import { connect } from 'react-redux';
+import { getCost } from '../../../redux/cartRedux.js';
 
 import styles from './ConfirmData.module.scss';
 
-const Component = ({className, children}) => (
-  <div className={clsx(className, styles.root)}>
-    <h2>ConfirmData</h2>
-    {children}
-  </div>
-);
+const Component = ({cartValue}) => {
 
-Component.propTypes = {
-  children: PropTypes.node,
-  className: PropTypes.string,
+  useEffect(() => {
+    console.log(cartValue);
+  });
+
+  return (
+    <div className={styles.root}>
+      <h2>ConfirmData</h2>
+      {cartValue}
+    </div>
+  );
 };
 
-// const mapStateToProps = state => ({
-//   someProp: reduxSelector(state),
-// });
+
+Component.propTypes = {
+  cartValue: PropTypes.func,
+};
+
+const mapStateToProps = state => ({
+  cartValue: getCost(state),
+});
 
 // const mapDispatchToProps = dispatch => ({
 //   someAction: arg => dispatch(reduxActionCreator(arg)),
 // });
 
-// const Container = connect(mapStateToProps, mapDispatchToProps)(Component);
+const Container = connect(mapStateToProps)(Component);
 
 export {
-  Component as ConfirmData,
-  // Container as ConfirmData,
+  // Component as ConfirmData,
+  Container as ConfirmData,
   Component as ConfirmDataComponent,
 };

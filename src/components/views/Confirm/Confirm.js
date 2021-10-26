@@ -7,10 +7,12 @@ import React from 'react';
 // import styles from './Confirm.module.scss';
 
 import { Container } from '../../layout/Container/Container'; 
+import { ConfirmData } from '../../features/ConfirmData/ConfirmData';
 import { ConfirmForm } from '../../features/ConfirmForm/ConfirmForm';
 
 const Component = () => (
   <Container variant='my'>
+    <ConfirmData />
     <ConfirmForm />
   </Container>
 );

@@ -9,6 +9,7 @@ export const initialState = {
     },
   },
   cart: {
+    value: 0,
     products: {
       data: [],
       loading: {

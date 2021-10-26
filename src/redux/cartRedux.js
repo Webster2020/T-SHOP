@@ -3,6 +3,10 @@ export const getAll = ({cart}) => {
   console.log(cart.products);
   return cart.products.data;
 };
+export const getCost = ({cart}) => {
+  console.log(cart.value);
+  return cart.value;
+};
 
 // --- A C T I O N   N A M E   C R E A T O R --- //
 const caName = name => `app/cart/${name}`;
@@ -14,6 +18,7 @@ const FETCH_ERROR = caName('FETCH_ERROR');
 const ADD_TO_CART = caName('ADD_TO_CART');
 const DEL_FROM_CART = caName('DEL_FROM_CART');
 const CHANGE_AMOUNT = caName('CHANGE_AMOUNT');
+const SET_CART_VALUE = caName('SET_CART_VALUE');
 
 // --- A C T I O N   C R E A T O R S --- //
 export const caFetchStarted = payload => ({ payload, type: FETCH_START });
@@ -22,6 +27,7 @@ export const caFetchError = payload => ({ payload, type: FETCH_ERROR });
 export const caAddToCart = payload => ({ payload, type: ADD_TO_CART });
 export const caDelFromCart = payload => ({ payload, type: DEL_FROM_CART });
 export const caChangeAmount = payload => ({ payload, type: CHANGE_AMOUNT });
+export const caSetCartValue = payload => ({ payload, type: SET_CART_VALUE });
 
 // --- R E D U C E R --- //
 export const reducer = (statePart = [], action = {}) => {
@@ -82,6 +88,12 @@ export const reducer = (statePart = [], action = {}) => {
           ...statePart.products,
           data: statePart.products.data.map(el => el.id === action.payload.id ? {...el, amount: action.payload.amount} : el),
         },
+      };
+    }
+    case SET_CART_VALUE: {
+      return {
+        ...statePart,
+        value: action.payload,
       };
     }
     default:

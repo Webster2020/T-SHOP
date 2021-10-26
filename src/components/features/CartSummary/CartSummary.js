@@ -1,4 +1,4 @@
-import React, { useEffect } from 'react';
+import React from 'react';
 import PropTypes from 'prop-types';
 import shortid from 'shortid';
 
@@ -12,22 +12,6 @@ import { Column } from '../../layout/Column/Column';
 import { GlassWrapper } from '../../layout/GlassWrapper/GlassWrapper';
 
 const Component = ({productsInCart}) => {
-
-  useEffect(() => {
-    console.log(productsInCart);
-  });
-
-  // const totalCost = productsInCart.length > 0 ? productsInCart.map(el => el.price * el.amount).reduce((a,b) => a + b) : 0;
-  // const summaryData = [
-  //   {
-  //     title: 'PRODUCT 1 COST:',
-  //     value: 180.00,
-  //   },
-  //   {
-  //     title: 'PRODUCT 2 COST:',
-  //     value: 210.00,
-  //   },
-  // ];
 
   const shippingCost = {
     title: 'SHIPPING COST:',

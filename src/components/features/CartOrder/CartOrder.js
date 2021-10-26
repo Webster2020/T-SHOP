@@ -1,42 +1,49 @@
 import React from 'react';
-// import PropTypes from 'prop-types';
+import PropTypes from 'prop-types';
 import { Link } from 'react-router-dom';
 
-// import { connect } from 'react-redux';
-// import { reduxSelector, reduxActionCreator } from '../../../redux/exampleRedux.js';
+import { connect } from 'react-redux';
+import { getAll, caSetCartValue } from '../../../redux/cartRedux.js';
 
 import styles from './CartOrder.module.scss';
 
 import { Button } from '../../common/Button/Button';
 import { GlassWrapper } from '../../layout/GlassWrapper/GlassWrapper';
 
-const Component = () => (
-  <Button variant='cartGlass'>
-    <Link to={'/confirm'} style={{ textDecoration: 'none' }}>
-      <GlassWrapper>
-        <div className={styles.cartOrder}>
-          <h3>Order</h3>
-        </div>
-      </GlassWrapper>
-    </Link>
-  </Button>
-);
+const Component = ({productsInCart, setCartValueDispatch}) => {
 
-// Component.propTypes = {
-// };
+  const cost = productsInCart.length > 0 ? productsInCart.map(el => el.price * el.amount).reduce((a,b) => a + b) : 0;
 
-// const mapStateToProps = state => ({
-//   someProp: reduxSelector(state),
-// });
+  return (
+    <Button variant='cartGlass' onClick={() => setCartValueDispatch(cost)}>
+      <Link to={`/${productsInCart.length > 0 ? 'confirm' : 'cart'}`} style={{ textDecoration: 'none' }}>
+        <GlassWrapper>
+          <div className={styles.cartOrder}>
+            <h3>{`${productsInCart.length > 0 ? 'Order' : 'Order is impossible!'}`}</h3>
+          </div>
+        </GlassWrapper>
+      </Link>
+    </Button>
+  );
+};
 
-// const mapDispatchToProps = dispatch => ({
-//   someAction: arg => dispatch(reduxActionCreator(arg)),
-// });
+Component.propTypes = {
+  productsInCart: PropTypes.array,
+  setCartValueDispatch: PropTypes.func,
+};
 
-// const Container = connect(mapStateToProps, mapDispatchToProps)(Component);
+const mapStateToProps = state => ({
+  productsInCart: getAll(state) || [],
+});
+
+const mapDispatchToProps = dispatch => ({
+  setCartValueDispatch: cost => dispatch(caSetCartValue(cost)),
+});
+
+const Container = connect(mapStateToProps, mapDispatchToProps)(Component);
 
 export {
-  Component as CartOrder,
-  // Container as CartOrder,
+  // Component as CartOrder,
+  Container as CartOrder,
   Component as CartOrderComponent,
 };
