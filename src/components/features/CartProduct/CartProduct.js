@@ -1,4 +1,4 @@
-import React, { useEffect } from 'react';
+import React, { useState } from 'react';
 import PropTypes from 'prop-types';
 
 import { connect } from 'react-redux';
@@ -13,17 +13,11 @@ import { Column } from '../../layout/Column/Column';
 import { GlassWrapper } from '../../layout/GlassWrapper/GlassWrapper';
 import { Row } from '../../layout/Row/Row';
 import { Tshirt } from '../../common/Tshirt/Tshirt';
+import { CartProductAmount } from '../CartProductAmount/CartProductAmount.js';
 
 const Component = ({product, delFromCartDispatch}) => {
 
-  useEffect(() => {
-    console.log(product.colors);
-  });
-
-  // const productCost = 99;
-  const ammount = 1;
-  const totalCost = product.price * ammount;
-  // const indexFromMap = 1;
+  const totalCost = product.price * product.amount;
 
   return (
     <Row variant={'verTop'}>
@@ -81,35 +75,13 @@ const Component = ({product, delFromCartDispatch}) => {
         </GlassWrapper>
       </Column>
 
-      <Column>
-        <Button variant='cartGlass'>
-          <GlassWrapper>
-            <div className={styles.buttonAmountContent}>
-              <h2>+</h2>
-            </div>
-          </GlassWrapper>
-        </Button>
-        <GlassWrapper>
-          <div className={styles.buttonAmountContent}>
-            <h2>{ammount}</h2>
-          </div>
-        </GlassWrapper>
-        <Button variant='cartGlass'>
-          <GlassWrapper>
-            <div className={styles.buttonAmountContent}>
-              <h2>-</h2>
-            </div>
-          </GlassWrapper>
-        </Button>
-      </Column>
+      <CartProductAmount product={product}/>
 
     </Row>
   );
 };
 
 Component.propTypes = {
-  children: PropTypes.node,
-  className: PropTypes.string,
   product: PropTypes.object,
   delFromCartDispatch: PropTypes.func,
 };
