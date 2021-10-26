@@ -21,8 +21,8 @@ const Component = ({productsInCart}) => {
   return (
     <div className={styles.root}>
       {productsInCart.length >0 ? 
-        productsInCart.length > 0 && productsInCart.map(product => (
-          <CartProduct key={shortid.generate()} product={product}/>
+        productsInCart.length > 0 && productsInCart.map((product, index) => (
+          <CartProduct key={shortid.generate()} product={product} index={index}/>
         ))
         :
         <Row variant={'verTop'}>

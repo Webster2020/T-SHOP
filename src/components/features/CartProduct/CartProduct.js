@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React from 'react';
 import PropTypes from 'prop-types';
 
 import { connect } from 'react-redux';
@@ -15,7 +15,7 @@ import { Row } from '../../layout/Row/Row';
 import { Tshirt } from '../../common/Tshirt/Tshirt';
 import { CartProductAmount } from '../CartProductAmount/CartProductAmount.js';
 
-const Component = ({product, delFromCartDispatch}) => {
+const Component = ({product, index, delFromCartDispatch}) => {
 
   const totalCost = product.price * product.amount;
 
@@ -33,7 +33,7 @@ const Component = ({product, delFromCartDispatch}) => {
 
         <GlassWrapper>
           <div className={styles.blindContent} style={{height: '45px'}}>
-            <h2>{product.id}</h2>
+            <h2>{index + 1}</h2>
           </div>
         </GlassWrapper>
 
@@ -83,6 +83,7 @@ const Component = ({product, delFromCartDispatch}) => {
 
 Component.propTypes = {
   product: PropTypes.object,
+  index: PropTypes.number,
   delFromCartDispatch: PropTypes.func,
 };
 

@@ -17,6 +17,7 @@ const Component = ({productsInCart}) => {
     console.log(productsInCart);
   });
 
+  // const totalCost = productsInCart.length > 0 ? productsInCart.map(el => el.price * el.amount).reduce((a,b) => a + b) : 0;
   // const summaryData = [
   //   {
   //     title: 'PRODUCT 1 COST:',
@@ -35,8 +36,7 @@ const Component = ({productsInCart}) => {
 
   const summaryTotal = {
     title: 'TOTAL COST:',
-    // value: summaryData.map(el => el.value).reduce((a,b) => a + b),
-    value: productsInCart.map(el => el.price).reduce((a,b) => a + b),
+    value: productsInCart.length > 0 ? productsInCart.map(el => el.price * el.amount).reduce((a,b) => a + b) : 0,
   };
 
   return (
@@ -45,29 +45,29 @@ const Component = ({productsInCart}) => {
 
         {productsInCart.map((el, index) => (
           <Row key={shortid.generate()}>
-            <Column justify={'horStart'}>
-              <h4 className={styles.summaryElem}>{`${index + 1} PRODUCT`}</h4>
+            <Column justify={'horStart'} flex='f8'>
+              <h4 className={styles.summaryElem}>{`${index + 1}. PRODUCT, ${el.amount} x ${el.price}$`}</h4>
             </Column>
-            <Column justify={'horEnd'}>
-              <h4 className={styles.summaryElem}>{el.price}$</h4>
+            <Column justify={'horEnd'} flex='f4'>
+              <h4 className={styles.summaryElem}>{el.price * el.amount}$</h4>
             </Column>
           </Row>
         ))}
 
         <Row>
-          <Column justify={'horStart'}>
+          <Column justify={'horStart'} flex='f8'>
             <h4 className={styles.summaryElem}>{shippingCost.title}</h4>
           </Column>
-          <Column justify={'horEnd'}>
+          <Column justify={'horEnd'} flex='f4'>
             <h4 className={styles.summaryElem}>{shippingCost.value}$</h4>
           </Column>
         </Row>
 
         <Row>
-          <Column justify={'horStart'}>
+          <Column justify={'horStart'} flex='f8'>
             <h3 className={styles.summaryTot}>{summaryTotal.title}</h3>
           </Column>
-          <Column justify={'horEnd'}>
+          <Column justify={'horEnd'} flex='f4'>
             <h3 className={styles.summaryTot}>{summaryTotal.value}$</h3>
           </Column>
         </Row>
