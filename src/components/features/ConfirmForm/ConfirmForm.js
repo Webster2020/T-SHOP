@@ -2,7 +2,7 @@ import React, { useEffect, useState } from 'react';
 import PropTypes from 'prop-types';
 
 import { connect } from 'react-redux';
-import { getAll, getCost } from '../../../redux/cartRedux.js';
+import { getAll, getCost, caClearCart } from '../../../redux/cartRedux.js';
 import { caAddOrder } from '../../../redux/orderRedux.js';
 
 import styles from './ConfirmForm.module.scss';
@@ -12,7 +12,12 @@ import { CheckBox } from '../../common/CheckBox/CheckBox';
 import { OrderButton } from '../../common/OrderButton/OrderButton';
 import { ValidMessage } from '../../common/ValidMessage/ValidMessage';
 
-const Component = ({cartContent, cartValue, addOrderDispatch}) => {
+const Component = ({
+  cartContent, 
+  cartValue, 
+  addOrderDispatch, 
+  clearCartDispatch,
+}) => {
  
   useEffect(() => {
     console.log(cartContent);
@@ -76,6 +81,7 @@ const Component = ({cartContent, cartValue, addOrderDispatch}) => {
     setInputNameValue('');
     setInputEmailValue('');
     setCheckBoxValue(false);
+    clearCartDispatch();
   };
 
   return (
@@ -126,6 +132,7 @@ Component.propTypes = {
   cartContent: PropTypes.array,
   cartValue: PropTypes.number,
   addOrderDispatch: PropTypes.func,
+  clearCartDispatch: PropTypes.func,
 };
 
 const mapStateToProps = state => ({
@@ -135,6 +142,7 @@ const mapStateToProps = state => ({
 
 const mapDispatchToProps = dispatch => ({
   addOrderDispatch: data => dispatch(caAddOrder(data)),
+  clearCartDispatch: () => dispatch(caClearCart()),
 });
 
 const Container = connect(mapStateToProps, mapDispatchToProps)(Component);

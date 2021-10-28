@@ -5,6 +5,8 @@ import { store } from './redux/store';
 
 import { Cart } from './components/views/Cart/Cart';
 import { Confirm } from './components/views/Confirm/Confirm';
+import { Examples } from './components/views/Examples/Examples';
+import { Create } from './components/views/Create/Create';
 import { Footer } from './components/layout/Footer/Footer';
 import { Home } from './components/views/Home/Home';
 import { MainLayout } from './components/layout/MainLayout/MainLayout';
@@ -19,6 +21,8 @@ const App = () => (
         <Switch>
           <Route exact path='/' component={Home} />
           <Route exact path='/home' component={Home} />
+          <Route exact path='/create' component={Create} />
+          <Route exact path='/examples' component={Examples} />
           <Route exact path='/cart' component={Cart} />
           <Route exact path='/confirm' component={Confirm} />
           <Route exact path='/test' component={Test} />

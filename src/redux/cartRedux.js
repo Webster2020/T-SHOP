@@ -19,6 +19,7 @@ const ADD_TO_CART = caName('ADD_TO_CART');
 const DEL_FROM_CART = caName('DEL_FROM_CART');
 const CHANGE_AMOUNT = caName('CHANGE_AMOUNT');
 const SET_CART_VALUE = caName('SET_CART_VALUE');
+const CLEAR_CART = caName('CLEAR_CART');
 
 // --- A C T I O N   C R E A T O R S --- //
 export const caFetchStarted = payload => ({ payload, type: FETCH_START });
@@ -28,6 +29,7 @@ export const caAddToCart = payload => ({ payload, type: ADD_TO_CART });
 export const caDelFromCart = payload => ({ payload, type: DEL_FROM_CART });
 export const caChangeAmount = payload => ({ payload, type: CHANGE_AMOUNT });
 export const caSetCartValue = payload => ({ payload, type: SET_CART_VALUE });
+export const caClearCart = payload => ({ payload, type: CLEAR_CART });
 
 // --- R E D U C E R --- //
 export const reducer = (statePart = [], action = {}) => {
@@ -94,6 +96,15 @@ export const reducer = (statePart = [], action = {}) => {
       return {
         ...statePart,
         value: action.payload,
+      };
+    }
+    case CLEAR_CART: {
+      return {
+        ...statePart,
+        value: 0,
+        products: {
+          data: [],
+        },
       };
     }
     default:
