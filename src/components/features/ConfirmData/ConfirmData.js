@@ -6,6 +6,9 @@ import { getCost } from '../../../redux/cartRedux.js';
 
 import styles from './ConfirmData.module.scss';
 
+import { GlassWrapper } from '../../layout/GlassWrapper/GlassWrapper';
+import { Row } from '../../layout/Row/Row'; 
+
 const Component = ({cartValue}) => {
 
   useEffect(() => {
@@ -14,8 +17,11 @@ const Component = ({cartValue}) => {
 
   return (
     <div className={styles.root}>
-      <h2>ConfirmData</h2>
-      {cartValue}
+      <Row>
+        <GlassWrapper>
+          <h3 className={styles.orderValue}>Value of order: {cartValue}$</h3>
+        </GlassWrapper>
+      </Row>
     </div>
   );
 };

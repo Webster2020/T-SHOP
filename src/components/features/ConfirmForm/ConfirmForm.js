@@ -1,8 +1,9 @@
-import React, { useState } from 'react';
-// import PropTypes from 'prop-types';
+import React, { useEffect, useState } from 'react';
+import PropTypes from 'prop-types';
 
-// import { connect } from 'react-redux';
-// import { reduxSelector, reduxActionCreator } from '../../../redux/exampleRedux.js';
+import { connect } from 'react-redux';
+import { getAll, getCost } from '../../../redux/cartRedux.js';
+import { caAddOrder } from '../../../redux/orderRedux.js';
 
 import styles from './ConfirmForm.module.scss';
 
@@ -11,8 +12,13 @@ import { CheckBox } from '../../common/CheckBox/CheckBox';
 import { OrderButton } from '../../common/OrderButton/OrderButton';
 import { ValidMessage } from '../../common/ValidMessage/ValidMessage';
 
-const Component = () => {
+const Component = ({cartContent, cartValue, addOrderDispatch}) => {
  
+  useEffect(() => {
+    console.log(cartContent);
+    console.log(cartValue);
+  });
+
   const [formValid, setFormValid] = useState(false);
   const [inputNameValue, setInputNameValue] = useState('');
 
@@ -44,7 +50,6 @@ const Component = () => {
 
   const validation = (event) => {
     event.preventDefault();
-    console.log('checking form validation!');
     setFormValid(false);
     if (inputNameValue === '') {
       setError('emptyName');
@@ -56,16 +61,18 @@ const Component = () => {
       setError('unchecked');
     } else {
       console.log('everything is OK!');
-      // setBookingDataDispatch({
-      //   name: inputNameValue,
-      //   email: inputEmailValue
-      // });
+      addOrderDispatch({
+        name: inputNameValue,
+        email: inputEmailValue,
+        products: cartContent,
+        cost: cartValue,
+      });
       setError('');
       setFormValid(true);
     }
   };
 
-  const submit = (event) => {
+  const submit = () => {
     setInputNameValue('');
     setInputEmailValue('');
     setCheckBoxValue(false);
@@ -108,28 +115,32 @@ const Component = () => {
           <OrderButton text={'CHECK FORM'} onClick={(e) => validation(e)} />
         )}
         {formValid && (
-          <OrderButton text={'BOOK TICKETS'} onClick={(e) => submit(e)} />
+          <OrderButton text={'NOW YOU CAN CONFIRM'} onClick={() => submit()} />
         )}
       </form>
     </div>
   );
 };
 
-// Component.propTypes = {
-// };
+Component.propTypes = {
+  cartContent: PropTypes.array,
+  cartValue: PropTypes.number,
+  addOrderDispatch: PropTypes.func,
+};
 
-// const mapStateToProps = state => ({
-//   someProp: reduxSelector(state),
-// });
+const mapStateToProps = state => ({
+  cartContent: getAll(state),
+  cartValue: getCost(state),
+});
 
-// const mapDispatchToProps = dispatch => ({
-//   someAction: arg => dispatch(reduxActionCreator(arg)),
-// });
+const mapDispatchToProps = dispatch => ({
+  addOrderDispatch: data => dispatch(caAddOrder(data)),
+});
 
-// const Container = connect(mapStateToProps, mapDispatchToProps)(Component);
+const Container = connect(mapStateToProps, mapDispatchToProps)(Component);
 
 export {
-  Component as ConfirmForm,
-  // Container as OrderForm,
+  // Component as ConfirmForm,
+  Container as ConfirmForm,
   Component as ConfirmFormComponent,
 };

@@ -12,10 +12,17 @@ export const initialState = {
     value: 0,
     products: {
       data: [],
-      loading: {
-        active: false,
-        error: false,
-      },
+    },
+    loading: {
+      active: false,
+      error: false,
+    },
+  },
+  order: {
+    data: [],
+    loading: {
+      active: false,
+      error: false,
     },
   },
 };
