@@ -1,0 +1,19 @@
+@import '../../../styles/settings.scss';
+
+// .root {
+// }
+
+.text {
+  background-color: inherit;
+  border: none;
+  resize: none;
+  font-family: $font-main;
+  font-size: $base-size * 2;
+  color: $color-white;
+  &::placeholder {
+    color: $color-main-one;
+  }
+  &:focus {
+    outline: none;
+  }
+}

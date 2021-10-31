@@ -1,23 +1,36 @@
-import React from 'react';
+import React, { useState } from 'react';
 import PropTypes from 'prop-types';
 
 import { connect } from 'react-redux';
-import { caDelFromCart } from '../../../redux/cartRedux.js';
+import { caAddDescription, caDelFromCart } from '../../../redux/cartRedux.js';
 
 import { TiDocumentText } from 'react-icons/ti';
+import { FaTshirt } from 'react-icons/fa';
 
 import styles from './CartProduct.module.scss';
 
 import { Button } from '../../common/Button/Button';
+import { CartProductAmount } from '../CartProductAmount/CartProductAmount.js';
 import { Column } from '../../layout/Column/Column';
+import { Description } from '../../common/Description/Description.js';
 import { GlassWrapper } from '../../layout/GlassWrapper/GlassWrapper';
 import { Row } from '../../layout/Row/Row';
 import { Tshirt } from '../../common/Tshirt/Tshirt';
-import { CartProductAmount } from '../CartProductAmount/CartProductAmount.js';
 
-const Component = ({product, index, delFromCartDispatch}) => {
+const Component = ({product, index, delFromCartDispatch, addDescriptionDispatch}) => {
 
   const totalCost = product.price * product.amount;
+  const [description, setDescription] = useState(false);
+  const [descValue, setDescValue] = useState('');
+
+  const showDescription = e => {
+    e.preventDefault();
+    setDescription(!description);
+  };
+
+  const handleChangeDesc = e => {
+    setDescValue(e.target.value);
+  };
 
   return (
     <Row variant={'verTop'}>
@@ -37,11 +50,11 @@ const Component = ({product, index, delFromCartDispatch}) => {
           </div>
         </GlassWrapper>
 
-        <Button variant='cartGlass'>
+        <Button variant='cartGlass' onClick={e => showDescription(e)}>
           <GlassWrapper>
             <div className={styles.buttonContent}>
               <h2>
-                <TiDocumentText style={{ marginTop: '5px' }} />
+                {!description ? <TiDocumentText style={{ marginTop: '5px' }} /> : <FaTshirt style={{ marginTop: '5px' }} />}
               </h2>
             </div>
           </GlassWrapper>
@@ -49,15 +62,47 @@ const Component = ({product, index, delFromCartDispatch}) => {
 
       </Column>
 
-      <Column flex={'f6'}>
-        <GlassWrapper>
-          <div className={styles.product}>
-            <Column flex={'f6'}>
-              <Tshirt view='cart' type='common' featuresDB={product}/>
-            </Column>
-          </div>
-        </GlassWrapper>
-      </Column>
+      {!description ?
+        (
+          <Column flex={'f6'}>
+            <GlassWrapper>
+              <div className={styles.product}>
+                <Column>
+                  <Tshirt view='cart' type='common' featuresDB={product}/>
+                </Column>
+              </div>
+            </GlassWrapper>
+          </Column>
+        )
+        :
+        (
+          <Column flex={'f6'}>
+            <GlassWrapper>
+              <div className={styles.description}>
+                <Column>
+                  <Description 
+                    inputValue={descValue}
+                    handleChangeValue={handleChangeDesc}
+                  />
+                </Column>
+              </div>
+            </GlassWrapper>
+            <Button 
+              variant='cartGlass' 
+              onClick={() => addDescriptionDispatch({
+                id: product.id, 
+                description: descValue,
+              })}
+            >
+              <GlassWrapper>
+                <div className={styles.buttonContent}>
+                  <h5>ADD DESCRIPTION</h5>
+                </div>
+              </GlassWrapper>
+            </Button>
+          </Column>
+        )
+      }
 
       <Column>
         <GlassWrapper>
@@ -85,6 +130,7 @@ Component.propTypes = {
   product: PropTypes.object,
   index: PropTypes.number,
   delFromCartDispatch: PropTypes.func,
+  addDescriptionDispatch: PropTypes.func,
 };
 
 // const mapStateToProps = state => ({
@@ -93,6 +139,7 @@ Component.propTypes = {
 
 const mapDispatchToProps = dispatch => ({
   delFromCartDispatch: data => dispatch(caDelFromCart(data)),
+  addDescriptionDispatch: data => dispatch(caAddDescription(data)),
 });
 
 const Container = connect(null, mapDispatchToProps)(Component);

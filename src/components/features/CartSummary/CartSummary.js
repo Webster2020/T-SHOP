@@ -31,6 +31,7 @@ const Component = ({productsInCart}) => {
           <Row key={shortid.generate()}>
             <Column justify={'horStart'} flex='f8'>
               <h4 className={styles.summaryElem}>{`${index + 1}. PRODUCT, ${el.amount} x ${el.price}$`}</h4>
+              <h5 className={styles.summaryElemDesc}>{el.description}</h5>
             </Column>
             <Column justify={'horEnd'} flex='f4'>
               <h4 className={styles.summaryElem}>{el.price * el.amount}$</h4>
