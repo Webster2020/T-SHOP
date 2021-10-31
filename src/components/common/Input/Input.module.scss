@@ -1,5 +1,4 @@
 @import '../../../styles/settings.scss';
-@import '../../../styles/global.scss';
 
 .root {
   display: flex;
@@ -7,7 +6,6 @@
   align-items: center;
   margin: $base-size * 0.5 $base-size * 0.5;
   padding: $base-size * 0.5 $base-size * 0.5;
-  // border: 1px solid $color-main-one;
   font-family: $font-main;
   font-size: $base-size * 2;
   color: $color-white;

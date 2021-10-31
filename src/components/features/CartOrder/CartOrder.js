@@ -43,7 +43,6 @@ const mapDispatchToProps = dispatch => ({
 const Container = connect(mapStateToProps, mapDispatchToProps)(Component);
 
 export {
-  // Component as CartOrder,
   Container as CartOrder,
   Component as CartOrderComponent,
 };

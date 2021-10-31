@@ -1,45 +1,25 @@
 import React from 'react';
-// import PropTypes from 'prop-types';
 
-// import { connect } from 'react-redux';
-// import { reduxSelector, reduxActionCreator } from '../../../redux/exampleRedux.js';
-
-// import styles from './Home.module.scss';
-
-import { Container } from '../../layout/Container/Container';
 import { Header } from '../../layout/Header/Header';
 import { ProductsList } from '../../features/ProductsList/ProductsList';
 import { Promotion } from '../../layout/Promotion/Promotion';
+import { Wrapper } from '../../layout/Wrapper/Wrapper';
 
 const Component = () => (
   <div>
     <Header />
-    <Container>
+    <Wrapper>
       <ProductsList variant='top'/>
-    </Container>
+    </Wrapper>
     <Promotion variant='promo'/>
-    <Container>
+    <Wrapper>
       <ProductsList variant='all'/>
-    </Container>
+    </Wrapper>
     <Promotion variant='benefits'/>
   </div>
 );
 
-// Component.propTypes = {
-// };
-
-// const mapStateToProps = state => ({
-//   someProp: reduxSelector(state),
-// });
-
-// const mapDispatchToProps = dispatch => ({
-//   someAction: arg => dispatch(reduxActionCreator(arg)),
-// });
-
-// const Container = connect(mapStateToProps, mapDispatchToProps)(Component);
-
 export {
   Component as Home,
-  // Container as Home,
   Component as HomeComponent,
 };

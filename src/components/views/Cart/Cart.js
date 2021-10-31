@@ -1,26 +1,20 @@
 import React from 'react';
-// import PropTypes from 'prop-types';
 
-// import { connect } from 'react-redux';
-// import { reduxSelector, reduxActionCreator } from '../../../redux/exampleRedux.js';
-
-// import styles from './Cart.module.scss';
-
+import { Break } from '../../layout/Break/Break';
 import { CartHeader } from '../../features/CartHeader/CartHeader';
 import { CartInfo } from '../../features/CartInfo/CartInfo';
 import { CartOrder } from '../../features/CartOrder/CartOrder';
 import { CartProductsList } from '../../features/CartProductsList/CartProductsList';
 import { CartSummary } from '../../features/CartSummary/CartSummary';
 import { Column } from '../../layout/Column/Column';
-import { Container } from '../../layout/Container/Container';
 import { ProductsList } from '../../features/ProductsList/ProductsList';
 import { Row } from '../../layout/Row/Row';
-import { Break } from '../../layout/Break/Break';
+import { Wrapper } from '../../layout/Wrapper/Wrapper';
 
 const Component = () => {
 
   return (
-    <Container variant={'my'}>
+    <Wrapper variant={'my'}>
       <Row>
         <Column flex={'f6'}>
           <CartHeader text='Cart' />
@@ -35,30 +29,12 @@ const Component = () => {
       </Row>
       <Break />
       <ProductsList variant='liked'/> 
-    </Container>
+    </Wrapper>
   );
 
 };
 
-// Component.propTypes = {
-//   children: PropTypes.node,
-//   variant: PropTypes.string,
-//   direction: PropTypes.string,
-//   className: PropTypes.string
-// };
-
-// const mapStateToProps = state => ({
-//   someProp: reduxSelector(state),
-// });
-
-// const mapDispatchToProps = dispatch => ({
-//   someAction: arg => dispatch(reduxActionCreator(arg)),
-// });
-
-// const Container = connect(mapStateToProps, mapDispatchToProps)(Component);
-
 export {
   Component as Cart,
-  // Container as Cart,
   Component as CartComponent,
 };

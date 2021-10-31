@@ -1,10 +1,10 @@
 import React from 'react';
 import { shallow } from 'enzyme';
-import { ContainerComponent } from './Container';
+import { WrapperComponent } from './Wrapper';
 
-describe('Component Container', () => {
+describe('Component Wrapper', () => {
   it('should render without crashing', () => {
-    const component = shallow(<ContainerComponent />);
+    const component = shallow(<WrapperComponent />);
     expect(component).toBeTruthy();
   });
 });

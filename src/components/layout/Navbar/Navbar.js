@@ -41,14 +41,9 @@ const mapStateToProps = state => ({
   productsInCart: getAll(state),
 });
 
-// const mapDispatchToProps = dispatch => ({
-//   someAction: arg => dispatch(reduxActionCreator(arg)),
-// });
-
 const Container = connect(mapStateToProps)(Component);
 
 export {
-  // Component as Navbar,
   Container as Navbar,
   Component as NavbarComponent,
 };

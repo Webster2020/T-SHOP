@@ -5,13 +5,12 @@ import { store } from './redux/store';
 
 import { Cart } from './components/views/Cart/Cart';
 import { Confirm } from './components/views/Confirm/Confirm';
-import { Examples } from './components/views/Examples/Examples';
 import { Create } from './components/views/Create/Create';
+import { Examples } from './components/views/Examples/Examples';
 import { Footer } from './components/layout/Footer/Footer';
 import { Home } from './components/views/Home/Home';
 import { MainLayout } from './components/layout/MainLayout/MainLayout';
 import { Navbar } from './components/layout/Navbar/Navbar';
-import { Test } from './components/views/Test/Test';
 
 const App = () => (
   <Provider store={store}>
@@ -25,7 +24,6 @@ const App = () => (
           <Route exact path='/examples' component={Examples} />
           <Route exact path='/cart' component={Cart} />
           <Route exact path='/confirm' component={Confirm} />
-          <Route exact path='/test' component={Test} />
         </Switch>
       </MainLayout>
     </BrowserRouter>

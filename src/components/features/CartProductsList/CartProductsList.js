@@ -1,4 +1,4 @@
-import React, { useEffect } from 'react';
+import React from 'react';
 import PropTypes from 'prop-types';
 import shortid from 'shortid';
 
@@ -13,10 +13,6 @@ import { GlassWrapper } from '../../layout/GlassWrapper/GlassWrapper';
 import { Row } from '../../layout/Row/Row';
 
 const Component = ({productsInCart}) => {
-
-  useEffect(() => {
-    console.log(productsInCart);
-  });
 
   return (
     <div className={styles.root}>
@@ -47,14 +43,9 @@ const mapStateToProps = state => ({
   productsInCart: getAll(state),
 });
 
-// const mapDispatchToProps = dispatch => ({
-//   someAction: arg => dispatch(reduxActionCreator(arg)),
-// });
-
 const Container = connect(mapStateToProps)(Component);
 
 export {
-  // Component as CartProductsList,
   Container as CartProductsList,
   Component as CartProductsListComponent,
 };

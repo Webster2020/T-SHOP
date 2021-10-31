@@ -1,16 +1,9 @@
 import React, { useState } from 'react';
 import PropTypes from 'prop-types';
 
-// import { connect } from 'react-redux';
-// import { reduxSelector, reduxActionCreator } from '../../../redux/exampleRedux.js';
-
 import styles from './Tshirt.module.scss';
 
 const Component = ({view, type, featuresDB}) => {
-
-  // useEffect(() => {
-  //   type === 'common' ? console.log(featuresDB.colors) : console.log('custom..');
-  // });
 
   const [colors, setColors] = useState({
     main: 'white',
@@ -82,18 +75,7 @@ Component.propTypes = {
   featuresDB: PropTypes.object,
 };
 
-// const mapStateToProps = state => ({
-//   someProp: reduxSelector(state),
-// });
-
-// const mapDispatchToProps = dispatch => ({
-//   someAction: arg => dispatch(reduxActionCreator(arg)),
-// });
-
-// const Container = connect(mapStateToProps, mapDispatchToProps)(Component);
-
 export {
   Component as Tshirt,
-  // Container as Tshirt,
   Component as TshirtComponent,
 };

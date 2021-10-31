@@ -1,8 +1,9 @@
-import { products as productsDB } from '../data/dbProducts';
+// import { products as productsDB } from '../data/dbProducts';
 
 export const initialState = {
   products: {
-    data: [...productsDB],
+    // data: [...productsDB],
+    data: [],
     loading: {
       active: false,
       error: false,

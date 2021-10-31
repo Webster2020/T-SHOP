@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react';
+import React, { useState } from 'react';
 import PropTypes from 'prop-types';
 
 import { connect } from 'react-redux';
@@ -18,11 +18,6 @@ const Component = ({
   addOrderDispatch, 
   clearCartDispatch,
 }) => {
- 
-  useEffect(() => {
-    console.log(cartContent);
-    console.log(cartValue);
-  });
 
   const [formValid, setFormValid] = useState(false);
   const [inputNameValue, setInputNameValue] = useState('');
@@ -148,7 +143,6 @@ const mapDispatchToProps = dispatch => ({
 const Container = connect(mapStateToProps, mapDispatchToProps)(Component);
 
 export {
-  // Component as ConfirmForm,
   Container as ConfirmForm,
   Component as ConfirmFormComponent,
 };

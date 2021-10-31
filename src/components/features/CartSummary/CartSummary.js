@@ -70,14 +70,9 @@ const mapStateToProps = state => ({
   productsInCart: getAll(state),
 });
 
-// const mapDispatchToProps = dispatch => ({
-//   someAction: arg => dispatch(reduxActionCreator(arg)),
-// });
-
 const Container = connect(mapStateToProps)(Component);
 
 export {
-  // Component as CartSummary,
   Container as CartSummary,
   Component as CartSummaryComponent,
 };

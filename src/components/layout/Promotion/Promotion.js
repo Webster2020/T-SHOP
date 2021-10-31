@@ -2,9 +2,6 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import shortid from 'shortid';
 
-// import { connect } from 'react-redux';
-// import { reduxSelector, reduxActionCreator } from '../../../redux/exampleRedux.js';
-
 import styles from './Promotion.module.scss';
 
 import { Bricks } from '../../features/Bricks/Bricks';
@@ -53,18 +50,7 @@ Component.propTypes = {
   variant: PropTypes.string,
 };
 
-// const mapStateToProps = state => ({
-//   someProp: reduxSelector(state),
-// });
-
-// const mapDispatchToProps = dispatch => ({
-//   someAction: arg => dispatch(reduxActionCreator(arg)),
-// });
-
-// const Container = connect(mapStateToProps, mapDispatchToProps)(Component);
-
 export {
   Component as Promotion,
-  // Container as Promotion,
   Component as PromotionComponent,
 };

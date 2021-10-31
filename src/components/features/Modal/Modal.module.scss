@@ -1,5 +1,4 @@
 @import '../../../styles/settings.scss';
-@import '../../../styles/global.scss';
 
 .overlay {
   position: fixed;
@@ -17,7 +16,6 @@
   position: absolute;
   display: block;
   height: 197px;
-  // width: 240px;
   top: calc(50% - 100px);
   left: calc(50% - 120px);
   background-image: linear-gradient(to right, $color-main-one , $color-dark);

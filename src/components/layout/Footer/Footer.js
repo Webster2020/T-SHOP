@@ -1,9 +1,5 @@
 import React from 'react';
-// import PropTypes from 'prop-types';
 import shortid from 'shortid';
-// import { IoMdCart, IoMdHeart } from 'react-icons/io';
-// import { connect } from 'react-redux';
-// import { reduxSelector, reduxActionCreator } from '../../../redux/exampleRedux.js';
 
 import styles from './Footer.module.scss';
 
@@ -12,11 +8,6 @@ import { links } from '../../../data/dbLinks';
 import { Button } from '../../common/Button/Button';
 
 const Component = () => {
-
-  // const icons = [
-  //   {icon: <IoMdCart size={35} />}, 
-  //   {icon: <IoMdHeart size={35} />}, 
-  // ];
 
   return (
     <div className={styles.root}>
@@ -55,21 +46,7 @@ const Component = () => {
   );
 };
 
-// Component.propTypes = {
-// };
-
-// const mapStateToProps = state => ({
-//   someProp: reduxSelector(state),
-// });
-
-// const mapDispatchToProps = dispatch => ({
-//   someAction: arg => dispatch(reduxActionCreator(arg)),
-// });
-
-// const Container = connect(mapStateToProps, mapDispatchToProps)(Component);
-
 export {
   Component as Footer,
-  // Container as Footer,
   Component as FooterComponent,
 };

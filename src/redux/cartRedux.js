@@ -1,10 +1,10 @@
 // --- S E L E C T O R S --- //
 export const getAll = ({cart}) => {
-  console.log(cart.products);
+  // console.log(cart.products);
   return cart.products.data;
 };
 export const getCost = ({cart}) => {
-  console.log(cart.value);
+  // console.log(cart.value);
   return cart.value;
 };
 

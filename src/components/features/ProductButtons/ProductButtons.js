@@ -38,7 +38,6 @@ const Component = ({
   const clickHandler = (e, type) => {
     e.preventDefault();
     if (type === 'cart') {
-      console.log('add to cart');
       addToCartDispatch(featuresDB);
     } else if (type === 'eye') {
       console.log('show product details');
@@ -75,10 +74,6 @@ Component.propTypes = {
   productUnlikeDispatch: PropTypes.func,
 };
 
-// const mapStateToProps = state => ({
-//   someProp: reduxSelector(state),
-// });
-
 const mapDispatchToProps = dispatch => ({
   addToCartDispatch: productData => dispatch(caAddToCart(productData)),
   productLikeDispatch: productId => dispatch(caProductLike(productId)),
@@ -88,7 +83,6 @@ const mapDispatchToProps = dispatch => ({
 const Container = connect(null, mapDispatchToProps)(Component);
 
 export {
-  // Component as ProductButtons,
   Container as ProductButtons,
   Component as ProductButtonsComponent,
 };
