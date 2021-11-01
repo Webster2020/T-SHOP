@@ -2,7 +2,6 @@ import axios from 'axios';
 
 // --- S E L E C T O R S --- //
 export const getAll = ({products}) => products.data;
-export const getTopThree = ({products}) => products.data.filter((product, index) => index < 4);
 export const getLiked = ({products}) => products.data.filter(product => product.like);
 export const getFetchStatus = ({products}) => products.loading.active;
 
@@ -90,13 +89,13 @@ export const reducer = (statePart = [], action = {}) => {
     case PRODUCT_LIKE: {
       return {
         ...statePart,
-        data: statePart.data.map(product => product.id === action.payload ? {...product, like: true} : product),
+        data: statePart.data.map(product => product._id === action.payload ? {...product, like: true} : product),
       };
     }
     case PRODUCT_UNLIKE: {
       return {
         ...statePart,
-        data: statePart.data.map(product => product.id === action.payload ? {...product, like: false} : product),
+        data: statePart.data.map(product => product._id === action.payload ? {...product, like: false} : product),
       };
     }
     default:

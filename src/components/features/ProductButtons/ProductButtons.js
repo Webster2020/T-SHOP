@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React from 'react';
 import PropTypes from 'prop-types';
 import shortid from 'shortid';
 import { IoMdCart, IoMdHeart, IoMdHeartEmpty, IoIosEye } from 'react-icons/io';
@@ -17,8 +17,6 @@ const Component = ({
   productLikeDispatch, 
   productUnlikeDispatch,
 }) => {
-  
-  const [like, setLike] = useState(false);
 
   const icons = [
     {
@@ -40,14 +38,11 @@ const Component = ({
     if (type === 'cart') {
       addToCartDispatch({...featuresDB, cartID: shortid.generate()});
     } else if (type === 'eye') {
-      console.log('show product details');
+      console.log('show product details (TO DO !!)');
       console.log({...featuresDB});
     } else {
-      console.log(like);
-      if (like && productUnlikeDispatch(featuresDB.id));
-      if (!like && productLikeDispatch(featuresDB.id));
-      setLike(!like);
-      console.log(`heart is ${like ? 'full' : 'empty'}`);
+      if (featuresDB.like && productUnlikeDispatch(featuresDB._id));
+      if (!featuresDB.like && productLikeDispatch(featuresDB._id));
     }
   };
 

@@ -5,7 +5,7 @@ import shortid from 'shortid';
 // import { products as featuresFromDB } from '../../../data/dbProducts'; // from store -> from DB Api
 
 import { connect } from 'react-redux';
-import { getAll, getTopThree, getLiked, getFetchStatus, caFetchProducts } from '../../../redux/productRedux.js';
+import { getAll, getFetchStatus, caFetchProducts } from '../../../redux/productRedux.js';
 
 import styles from './ProductsList.module.scss';
 
@@ -14,9 +14,7 @@ import { Row } from '../../layout/Row/Row';
 
 const Component = ({
   variant, 
-  productsAll, 
-  productsTopThree, 
-  productsLiked, 
+  productsAll,  
   activeFetch,
   fetchProductsDispatch,
 }) => {
@@ -32,7 +30,7 @@ const Component = ({
           {variant === 'top' &&
             <Row variant='wrap' justify='sb'>
               <h1 className={styles.title}>TOP 3</h1>
-              {productsTopThree.map(featuresDB => (
+              {productsAll.filter(product => product.colors.main === 'white').map(featuresDB => (
                 <Product key={shortid.generate()} view='home' type='common' featuresDB={featuresDB}/>         
               ))}
             </Row>
@@ -48,7 +46,7 @@ const Component = ({
           {variant === 'liked' &&
             <Row variant='wrap' justify='sb'>
               <h1 className={styles.title}>Favourites</h1>
-              {productsLiked.map(featuresDB => (
+              {productsAll.filter(product => product.like).map(featuresDB => (
                 <Product key={shortid.generate()} view='home' type='common' featuresDB={featuresDB} className='styles.scaleDown'/>         
               ))}
             </Row>
@@ -62,16 +60,12 @@ const Component = ({
 Component.propTypes = {
   variant: PropTypes.string,
   productsAll: PropTypes.array,
-  productsTopThree: PropTypes.array,
-  productsLiked: PropTypes.array,
   activeFetch: PropTypes.bool,
   fetchProductsDispatch: PropTypes.func,
 };
 
 const mapStateToProps = state => ({
   productsAll: getAll(state),
-  productsTopThree: getTopThree(state),
-  productsLiked: getLiked(state),
   activeFetch: getFetchStatus(state),
 });
 
