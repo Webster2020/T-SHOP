@@ -12,3 +12,16 @@
     }
   }
 }
+
+@media (max-width: 576px) {
+  .root {
+    h1 {
+      font-size: $base-size * 7;
+      span {
+        padding-top: $base-size * 0.8;
+        font-size: $base-size * 4.5;
+        border-top: $base-size * 1.1 solid $color-white;
+      }
+    }
+  }
+}

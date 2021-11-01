@@ -15,3 +15,10 @@
   );
   z-index: 100;
 }
+
+@media (max-width: 576px) {
+  .root {
+    padding: $base-size * 5;
+    height: 230px;
+  }
+}

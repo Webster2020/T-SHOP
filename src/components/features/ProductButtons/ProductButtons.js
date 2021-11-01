@@ -13,7 +13,7 @@ import { Button } from '../../common/Button/Button';
 
 const Component = ({
   featuresDB, 
-  addToCartDispatch, 
+  addToCartDispatch,
   productLikeDispatch, 
   productUnlikeDispatch,
 }) => {

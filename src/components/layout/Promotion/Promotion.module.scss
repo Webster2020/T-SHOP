@@ -67,3 +67,18 @@
     font-weight: 900;
   }
 }
+
+@media (max-width: 576px) {
+  .root {
+    padding: $base-size * 0;
+  }
+  .sectionCol {
+    margin-bottom: $base-size * 5;
+  }
+  .scaleDown90 {
+    transform: scale(0.90);
+  }
+  .scaleDown65 {
+    transform: scale(0.65);
+  }
+}

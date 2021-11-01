@@ -18,7 +18,7 @@ const Component = ({productsInCart}) => {
 
   return (
     <nav className={styles.root}>
-      <Row>
+      <Row className={styles.rowBorder}>
         {menu.map(el => (
           <Column key={shortid.generate()} className={styles.navCol}>
             <Link to={'/' + el} style={{ textDecoration: 'none' }}>

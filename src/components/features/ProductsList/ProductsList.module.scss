@@ -1,12 +1,5 @@
 @import "../../../styles/settings.scss";
 
-.root {
-  display: flex;
-  flex-direction: row;
-  justify-content: space-between;
-  flex-wrap: wrap;
-}
-
 .title {
   display: block;
   margin: $base-size * 1 $base-size * 1.5;
@@ -18,4 +11,10 @@
   font-size: $base-size * 3;
   color: $color-white;
   text-align: center;
+}
+
+@media (max-width: 1050px) {
+  .cen1050 {
+    justify-content: center;
+  }
 }

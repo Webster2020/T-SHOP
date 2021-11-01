@@ -16,7 +16,7 @@ const Component = ({variant}) => {
 
       {variant === 'promo' && 
         (
-          <Row variant='wrap'>
+          <Row variant='wrap' className={styles.scaleDown65}>
             <div className={`${styles.sectionCol} ${styles.sectionPromo}`}>
               <h1>CREATE</h1>
               <h1>CUSTOM</h1>
@@ -31,7 +31,7 @@ const Component = ({variant}) => {
 
       {variant === 'benefits' && 
         (
-          <Row variant='wrap'>
+          <Row variant='wrap' className={styles.scaleDown90}>
             {benefits.map(el => (
               <div key={shortid.generate()} className={`${styles.sectionCol} ${styles.sectionBenefits}`}>
                 <h1>{el}</h1>

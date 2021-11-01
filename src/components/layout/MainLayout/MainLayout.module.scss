@@ -5,3 +5,9 @@
   margin: $base-size * 10 0 0;
   padding: 0;
 }
+
+@media (max-width: 576px) {
+  .root {
+    margin: $base-size * 0 0 0;
+  }
+}

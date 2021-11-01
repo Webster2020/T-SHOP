@@ -28,7 +28,7 @@ const Component = ({
       {!activeFetch &&
         (<div>
           {variant === 'top' &&
-            <Row variant='wrap' justify='sb'>
+            <Row variant='wrap' justify='sb' className={styles.cen1050}>
               <h1 className={styles.title}>TOP 3</h1>
               {productsAll.filter(product => product.colors.main === 'white').map(featuresDB => (
                 <Product key={shortid.generate()} view='home' type='common' featuresDB={featuresDB}/>         
@@ -36,7 +36,7 @@ const Component = ({
             </Row>
           }
           {variant === 'all' &&
-            <Row variant='wrap' justify='sb'>
+            <Row variant='wrap' justify='sb' className={styles.cen1050}>
               <h1 className={styles.title}>PRODUCTS</h1>
               {productsAll.map(featuresDB => (
                 <Product key={shortid.generate()} view='home' type='common' featuresDB={featuresDB}/>         
@@ -44,7 +44,7 @@ const Component = ({
             </Row>
           }
           {variant === 'liked' &&
-            <Row variant='wrap' justify='sb'>
+            <Row variant='wrap' justify='sb' className={styles.cen1050}>
               <h1 className={styles.title}>Favourites</h1>
               {productsAll.filter(product => product.like).map(featuresDB => (
                 <Product key={shortid.generate()} view='home' type='common' featuresDB={featuresDB} className='styles.scaleDown'/>         

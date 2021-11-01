@@ -12,7 +12,7 @@ const Component = () => {
   return (
     <div className={styles.root}>
       <div className={styles.row}>
-        <div className={styles.col3}>
+        <div className={`${styles.col3} ${styles.hide}`}>
           <Button variant='footer' width='wdtFull' stable={true}>
             <h2 className={styles.logo}>WEBSTER2020</h2>
           </Button>

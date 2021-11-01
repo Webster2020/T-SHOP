@@ -5,18 +5,13 @@
   margin: $base-size * 0.2 auto;
   padding: $base-size * 4 $base-size * 1;
   box-shadow: $box-shadow-md;
-  font-family: $font-main;
-  font-size: $base-size * 2;
   color: $color-white;
   text-align: center;
-  h1 {
-    font-size: $base-size * 9;
-    font-weight: 600;
-    span {
-      padding-top: 9px;
-      font-size: $base-size * 6;
-      font-weight: 400;
-      border-top: $base-size * 1.2 solid $color-white;
-    }
+}
+
+@media (max-width: 576px) {
+  .root {
+    padding: $base-size * 3 $base-size * 0 $base-size * 1;
+    font-size: $base-size * 1;
   }
 }

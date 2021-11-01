@@ -15,3 +15,20 @@
 .navCol {
   margin: 0 $base-size * 0.2;
 }
+
+.rowBorder {
+  flex-direction: row;
+}
+
+@media (max-width: 576px) {
+  .root {
+    position: relative;
+    height: 400px;
+  }
+  .navCol {
+    margin: $base-size * 0.2;
+  }
+  .rowBorder {
+    flex-direction: column;
+  }
+}
