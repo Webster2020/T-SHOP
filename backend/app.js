@@ -5,6 +5,7 @@ const mongoose = require('mongoose');
 require('dotenv').config();
 
 const productsRoutes = require('./routes/products.routes');
+const ordersRoutes = require('./routes/orders.routes');
 
 const app = express();
 
@@ -15,7 +16,7 @@ app.use(express.urlencoded({ extended: false }));
 
 /* API ENDPOINTS */
 app.use('/api/products', productsRoutes);
-
+app.use('/api/orders', ordersRoutes);
 
 /* API ERROR PAGES */
 app.use('/api', (req, res) => {
@@ -23,6 +24,9 @@ app.use('/api', (req, res) => {
 });
 app.use('/api/products', (req, res) => {
   res.status(404).send({ products: 'Not found...' });
+});
+app.use('/api/orders', (req, res) => {
+  res.status(404).send({ orders: 'Not found...' });
 });
 
 /* REACT WEBSITE */

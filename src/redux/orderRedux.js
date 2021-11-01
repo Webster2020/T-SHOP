@@ -1,3 +1,5 @@
+import axios from 'axios';
+
 // --- S E L E C T O R S --- //
 export const getAll = ({order}) => {
   console.log(order);
@@ -18,6 +20,21 @@ export const caFetchStarted = payload => ({ payload, type: FETCH_START });
 export const caFetchSuccess = payload => ({ payload, type: FETCH_SUCCESS });
 export const caFetchError = payload => ({ payload, type: FETCH_ERROR });
 export const caAddOrder = payload => ({ payload, type: ADD_ORDER });
+
+// --- T H U N K   C R E A T O R S --- //
+export const caAddOrderToDB = (newOrder) => {
+  return (dispatch, getState) => {
+    axios
+      // .post(`http://olx.webster2020.usermd.net/api/posts`, newOrder)
+      .post(`http://localhost:8000/api/orders/add`, newOrder)
+      .then(res => {
+        dispatch(caAddOrder(newOrder));
+      })
+      .catch(err => {
+        console.log(err);
+      });
+  };
+};
 
 // --- R E D U C E R --- //
 export const reducer = (statePart = [], action = {}) => {

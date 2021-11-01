@@ -3,7 +3,7 @@ import PropTypes from 'prop-types';
 
 import { connect } from 'react-redux';
 import { getAll, getCost, caClearCart } from '../../../redux/cartRedux.js';
-import { caAddOrder } from '../../../redux/orderRedux.js';
+import { caAddOrderToDB } from '../../../redux/orderRedux.js';
 
 import styles from './ConfirmForm.module.scss';
 
@@ -136,7 +136,7 @@ const mapStateToProps = state => ({
 });
 
 const mapDispatchToProps = dispatch => ({
-  addOrderDispatch: data => dispatch(caAddOrder(data)),
+  addOrderDispatch: data => dispatch(caAddOrderToDB(data)),
   clearCartDispatch: () => dispatch(caClearCart()),
 });
 
