@@ -2,7 +2,6 @@
 
 export const initialState = {
   products: {
-    // data: [...productsDB],
     data: [],
     loading: {
       active: false,
@@ -14,16 +13,8 @@ export const initialState = {
     products: {
       data: [],
     },
-    loading: {
-      active: false,
-      error: false,
-    },
   },
   order: {
     data: [],
-    loading: {
-      active: false,
-      error: false,
-    },
   },
 };

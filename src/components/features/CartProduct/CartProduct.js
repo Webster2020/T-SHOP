@@ -91,6 +91,7 @@ const Component = ({product, index, delFromCartDispatch, addDescriptionDispatch}
               variant='cartGlass' 
               onClick={() => addDescriptionDispatch({
                 id: product.id, 
+                cartID: product.cartID,
                 description: descValue,
               })}
             >
@@ -133,10 +134,6 @@ Component.propTypes = {
   addDescriptionDispatch: PropTypes.func,
 };
 
-// const mapStateToProps = state => ({
-//   someProp: reduxSelector(state),
-// });
-
 const mapDispatchToProps = dispatch => ({
   delFromCartDispatch: data => dispatch(caDelFromCart(data)),
   addDescriptionDispatch: data => dispatch(caAddDescription(data)),
@@ -145,7 +142,6 @@ const mapDispatchToProps = dispatch => ({
 const Container = connect(null, mapDispatchToProps)(Component);
 
 export {
-  // Component as CartProduct,
   Container as CartProduct,
   Component as CartProductComponent,
 };

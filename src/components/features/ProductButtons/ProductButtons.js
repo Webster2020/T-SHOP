@@ -38,11 +38,12 @@ const Component = ({
   const clickHandler = (e, type) => {
     e.preventDefault();
     if (type === 'cart') {
-      addToCartDispatch(featuresDB);
+      addToCartDispatch({...featuresDB, cartID: shortid.generate()});
     } else if (type === 'eye') {
       console.log('show product details');
-      console.log(featuresDB);
+      console.log({...featuresDB});
     } else {
+      console.log(like);
       if (like && productUnlikeDispatch(featuresDB.id));
       if (!like && productLikeDispatch(featuresDB.id));
       setLike(!like);

@@ -21,6 +21,7 @@ const Component = ({product, changeAmountDispatch}) => {
         setAmount(amount + 1);
         changeAmountDispatch({
           id: product.id,
+          cartID: product.cartID,
           amount: amount + 1,
         });
       }
@@ -30,6 +31,7 @@ const Component = ({product, changeAmountDispatch}) => {
         setAmount(amount - 1);
         changeAmountDispatch({
           id: product.id,
+          cartID: product.cartID,
           amount: amount - 1,
         });
       }
@@ -38,7 +40,7 @@ const Component = ({product, changeAmountDispatch}) => {
 
   return (
     <Column>
-      <Button variant='cartGlass' onClick={(e) => changeAmount(e, 'increase')}>
+      <Button variant='cartGlass' onClick={e => changeAmount(e, 'increase')}>
         <GlassWrapper>
           <div className={styles.buttonAmountContent}>
             <h2>+</h2>
@@ -50,7 +52,7 @@ const Component = ({product, changeAmountDispatch}) => {
           <h2>{product.amount}</h2>
         </div>
       </GlassWrapper>
-      <Button variant='cartGlass' onClick={(e) => changeAmount(e, 'decrease')}>
+      <Button variant='cartGlass' onClick={e => changeAmount(e, 'decrease')}>
         <GlassWrapper>
           <div className={styles.buttonAmountContent}>
             <h2>-</h2>
@@ -66,10 +68,6 @@ Component.propTypes = {
   changeAmountDispatch: PropTypes.func,
 };
 
-// const mapStateToProps = state => ({
-//   someProp: reduxSelector(state),
-// });
-
 const mapDispatchToProps = dispatch => ({
   changeAmountDispatch: data => dispatch(caChangeAmount(data)),
 });
@@ -77,7 +75,6 @@ const mapDispatchToProps = dispatch => ({
 const Container = connect(null, mapDispatchToProps)(Component);
 
 export {
-  // Component as CartProductAmount,
   Container as CartProductAmount,
   Component as CartProductAmountComponent,
 };

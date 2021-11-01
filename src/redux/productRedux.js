@@ -1,18 +1,9 @@
 import axios from 'axios';
 
 // --- S E L E C T O R S --- //
-export const getAll = ({products}) => {
-  // console.log(products.data);
-  return products.data;
-};
-export const getTopThree = ({products}) => {
-  // console.log(products.data);
-  return products.data.filter((product, index) => index < 4);
-};
-export const getLiked = ({products}) => {
-  // console.log(products.data);
-  return products.data.filter(product => product.like);
-};
+export const getAll = ({products}) => products.data;
+export const getTopThree = ({products}) => products.data.filter((product, index) => index < 4);
+export const getLiked = ({products}) => products.data.filter(product => product.like);
 export const getFetchStatus = ({products}) => products.loading.active;
 
 // --- A C T I O N   N A M E   C R E A T O R --- //
@@ -40,10 +31,9 @@ export const caFetchProducts = (products, refetch, activeFetch) => {
       if(products.length < 1 && !activeFetch) {
         console.log('first fetch');
         axios
-          // .get('http://olx.webster2020.usermd.net/api/posts')
+          // .get('http://tshop.webster2020.usermd.net/api/products/all')
           .get('http://localhost:8000/api/products/all')
           .then(res => {
-            console.log(res.data);
             dispatch(caFetchSuccess(res.data));
           })
           .catch(err => {
@@ -53,7 +43,7 @@ export const caFetchProducts = (products, refetch, activeFetch) => {
     } else {
       console.log('refetch');
       axios
-        // .get('http://olx.webster2020.usermd.net/api/posts')
+        // .get('http://tshop.webster2020.usermd.net/api/products/all')
         .get('http://localhost:8000/api/products/all')
         .then(res => {
           console.log(res.data);
