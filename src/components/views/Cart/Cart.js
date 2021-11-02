@@ -1,5 +1,7 @@
 import React from 'react';
 
+import styles from './Cart.module.scss';
+
 import { Break } from '../../layout/Break/Break';
 import { CartHeader } from '../../features/CartHeader/CartHeader';
 import { CartInfo } from '../../features/CartInfo/CartInfo';
@@ -15,13 +17,13 @@ const Component = () => {
 
   return (
     <Wrapper variant={'my'}>
-      <Row>
-        <Column flex={'f6'}>
+      <Row className={styles.col}>
+        <Column flex={'f6'} className={styles.full}>
           <CartHeader text='Cart' />
           <CartProductsList />
           <CartInfo />
         </Column>
-        <Column flex={'f6'}>    
+        <Column flex={'f6'} className={styles.full}>    
           <CartHeader text='Summary' />
           <CartSummary /> 
           <CartOrder />     

@@ -1,7 +1,18 @@
 @import '../../../styles/settings.scss';
-@import '../../../styles/global.scss';
 
 .infoContent {
   display: block;
   margin: $base-size * 1.5 $base-size * 2;
+}
+
+@media (max-width: 992px) {
+  .col {
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    margin-top: $base-size * 4;
+  }
+  .full {
+    width: 300px;
+  }
 }

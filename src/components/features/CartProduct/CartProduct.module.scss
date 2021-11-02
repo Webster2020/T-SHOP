@@ -1,5 +1,4 @@
 @import '../../../styles/settings.scss';
-@import '../../../styles/global.scss';
 
 .buttonContent, .content, .blindContent {
   display: block;
@@ -25,4 +24,42 @@
   display: block;
   margin: $base-size * 1.5 $base-size * 2;
   height: 142px;
+}
+
+@media (max-width: 992px) {
+  .col {
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+  }
+  
+  .row {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    width: 300px;
+  }
+  
+  .buttonContent {
+    padding-top: $base-size * 0.5;
+    height: 45px;
+    width: 35px;
+    h5 {
+      padding-top: $base-size;
+      width: 240px;
+    }
+  }
+
+  .blindContent {
+    height: 20px;
+    width: 35px;
+  }
+
+  .description {
+    width: 235px;
+  }
+
+  .hide {
+    display: none;
+  }
 }

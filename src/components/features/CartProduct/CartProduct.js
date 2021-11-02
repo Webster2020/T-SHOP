@@ -33,9 +33,9 @@ const Component = ({product, index, delFromCartDispatch, addDescriptionDispatch}
   };
 
   return (
-    <Row variant={'verTop'}>
+    <Row variant={'verTop'} className={styles.col}>
 
-      <Column>
+      <Column className={styles.row}>
         <Button variant='cartGlass' onClick={() => delFromCartDispatch(product)}>
           <GlassWrapper>
             <div className={styles.buttonContent}>
@@ -105,7 +105,7 @@ const Component = ({product, index, delFromCartDispatch, addDescriptionDispatch}
         )
       }
 
-      <Column>
+      <Column className={styles.row}>
         <GlassWrapper>
           <div className={styles.content}>
             <h3>cost: {product.price}$</h3>
@@ -117,7 +117,7 @@ const Component = ({product, index, delFromCartDispatch, addDescriptionDispatch}
           </div>
         </GlassWrapper>
         <GlassWrapper>
-          <div className={styles.blindContent} style={{height: '23px'}}></div>
+          <div className={`${styles.blindContent} ${styles.hide}`} style={{height: '23px'}}></div>
         </GlassWrapper>
       </Column>
 

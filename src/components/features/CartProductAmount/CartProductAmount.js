@@ -39,7 +39,7 @@ const Component = ({product, changeAmountDispatch}) => {
   };
 
   return (
-    <Column>
+    <Column className={styles.row}>
       <Button variant='cartGlass' onClick={e => changeAmount(e, 'increase')}>
         <GlassWrapper>
           <div className={styles.buttonAmountContent}>

@@ -4,3 +4,15 @@
   display: block;
   margin: $base-size * 1.95 $base-size * 2;
 }
+
+@media (max-width: 992px) {
+  .row {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    width: 300px;
+  }
+  .buttonAmountContent {
+    width: 35px;
+  }
+}

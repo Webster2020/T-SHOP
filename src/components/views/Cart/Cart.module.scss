@@ -1,5 +1,16 @@
 @import '../../../styles/settings.scss';
 
-.scaleDown {
-  transform: scale(0.5);
+@media (max-width: 992px) {
+  .col {
+    flex-direction: column !important;
+  }
+  
+  .full {
+    flex: 1;
+  }
+  
+  .full:nth-of-type(1) {
+    order: 2;
+    margin-top: $base-size * 5;
+  }
 }

@@ -10,9 +10,9 @@ import { Column } from '../../layout/Column/Column';
 import { GlassWrapper } from '../../layout/GlassWrapper/GlassWrapper';
 
 const Component = () => (
-  <Row>
+  <Row className={styles.col}>
     {info.map((e) => (
-      <Column key={shortid.generate()}>
+      <Column key={shortid.generate()} className={styles.full}>
         <GlassWrapper>
           <div className={styles.infoContent}>
             <h4>{e}</h4>
