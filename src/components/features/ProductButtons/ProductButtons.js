@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import PropTypes from 'prop-types';
 import shortid from 'shortid';
 import { IoMdCart, IoMdHeart, IoMdHeartEmpty, IoIosEye } from 'react-icons/io';
@@ -17,6 +17,8 @@ const Component = ({
   productLikeDispatch, 
   productUnlikeDispatch,
 }) => {
+
+  const [displayPrice, setDisplayPrice] = useState(false);
 
   const icons = [
     {
@@ -39,7 +41,8 @@ const Component = ({
       addToCartDispatch({...featuresDB, cartID: shortid.generate()});
     } else if (type === 'eye') {
       console.log('show product details (TO DO !!)');
-      console.log({...featuresDB});
+      console.log(featuresDB.price);
+      setDisplayPrice(!displayPrice);
     } else {
       if (featuresDB.like && productUnlikeDispatch(featuresDB._id));
       if (!featuresDB.like && productLikeDispatch(featuresDB._id));
@@ -55,7 +58,7 @@ const Component = ({
           onClick={e => clickHandler(e, el.type)}
         >
           <div className={styles.iconWrapper}>
-            {el.icon}
+            {el.type === 'eye' ? displayPrice ? <h4 className={styles.price}>{featuresDB.price}$</h4> : el.icon : el.icon}
           </div>
         </Button>
       ))}
