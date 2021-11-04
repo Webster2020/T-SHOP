@@ -16,8 +16,8 @@ export const caAddOrder = payload => ({ payload, type: ADD_ORDER });
 export const caAddOrderToDB = (newOrder) => {
   return (dispatch, getState) => {
     axios
-      // .post(`http://tshop.webster2020.usermd.net/api/orders/add`, newOrder)
-      .post(`http://localhost:8000/api/orders/add`, newOrder)
+      .post(`http://tshop.webster2020.usermd.net/api/orders/add`, newOrder)
+      // .post(`http://localhost:8000/api/orders/add`, newOrder)
       .then(res => {
         dispatch(caAddOrder(newOrder));
       })

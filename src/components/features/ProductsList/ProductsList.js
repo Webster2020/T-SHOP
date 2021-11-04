@@ -30,7 +30,7 @@ const Component = ({
           {variant === 'top' &&
             <Row variant='wrap' justify='sb' className={styles.cen1050}>
               <h1 className={styles.title}>TOP 3</h1>
-              {productsAll.filter(product => product.colors.main === 'white').map(featuresDB => (
+              {productsAll.filter(product => product.colors.mainStripe === 'black').map(featuresDB => (
                 <Product key={shortid.generate()} view='home' type='common' featuresDB={featuresDB}/>         
               ))}
             </Row>

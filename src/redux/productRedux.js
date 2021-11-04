@@ -14,6 +14,7 @@ const FETCH_SUCCESS = caName('FETCH_SUCCESS');
 const FETCH_ERROR = caName('FETCH_ERROR');
 const PRODUCT_LIKE = caName('PRODUCT_LIKE');
 const PRODUCT_UNLIKE = caName('PRODUCT_UNLIKE');
+const ADD_PRODUCT = caName('ADD_PRODUCT');
 
 // --- A C T I O N   C R E A T O R S --- //
 export const caFetchStarted = payload => ({ payload, type: FETCH_START });
@@ -21,6 +22,7 @@ export const caFetchSuccess = payload => ({ payload, type: FETCH_SUCCESS });
 export const caFetchError = payload => ({ payload, type: FETCH_ERROR });
 export const caProductLike = payload => ({ payload, type: PRODUCT_LIKE });
 export const caProductUnlike = payload => ({ payload, type: PRODUCT_UNLIKE });
+export const caAddProduct = payload => ({ payload, type: ADD_PRODUCT });
 
 // --- T H U N K   C R E A T O R S --- //
 export const caFetchProducts = (products, refetch, activeFetch) => {
@@ -30,8 +32,8 @@ export const caFetchProducts = (products, refetch, activeFetch) => {
       if(products.length < 1 && !activeFetch) {
         console.log('first fetch');
         axios
-          // .get('http://tshop.webster2020.usermd.net/api/products/all')
-          .get('http://localhost:8000/api/products/all')
+          .get('http://tshop.webster2020.usermd.net/api/products/all')
+          // .get('http://localhost:8000/api/products/all')
           .then(res => {
             dispatch(caFetchSuccess(res.data));
           })
@@ -42,8 +44,8 @@ export const caFetchProducts = (products, refetch, activeFetch) => {
     } else {
       console.log('refetch');
       axios
-        // .get('http://tshop.webster2020.usermd.net/api/products/all')
-        .get('http://localhost:8000/api/products/all')
+        .get('http://tshop.webster2020.usermd.net/api/products/all')
+        // .get('http://localhost:8000/api/products/all')
         .then(res => {
           console.log(res.data);
           dispatch(caFetchSuccess(res.data));
@@ -52,6 +54,22 @@ export const caFetchProducts = (products, refetch, activeFetch) => {
           dispatch(caFetchError(err.message || true));
         });
     }
+  };
+};
+
+export const caAddProductToDB = (newProduct) => {
+  console.log('???');
+  return (dispatch, getState) => {
+    axios
+      .post(`http://tshop.webster2020.usermd.net/api/products/add`, newProduct)
+      // .post(`http://localhost:8000/api/products/add`, newProduct)
+      .then(res => {
+        console.log(newProduct);
+        dispatch(caAddProduct(newProduct));
+      })
+      .catch(err => {
+        console.log(err);
+      });
   };
 };
 
@@ -96,6 +114,15 @@ export const reducer = (statePart = [], action = {}) => {
       return {
         ...statePart,
         data: statePart.data.map(product => product._id === action.payload ? {...product, like: false} : product),
+      };
+    }
+    case ADD_PRODUCT: {
+      return {
+        ...statePart,
+        loading: {
+          active: false,
+          error: false,
+        },
       };
     }
     default:

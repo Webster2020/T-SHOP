@@ -113,7 +113,7 @@ const Component = ({
           <ValidMessage variant={error} text='check it!' />
         )}
         {!formValid && (
-          <OrderButton text={'CHECK FORM'} onClick={(e) => validation(e)} />
+          <OrderButton text={'CHECK FORM'} onClick={e => validation(e)} />
         )}
         {formValid && (
           <OrderButton text={'NOW YOU CAN CONFIRM'} onClick={() => submit()} />

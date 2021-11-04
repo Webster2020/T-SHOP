@@ -2,6 +2,7 @@ const express = require('express');
 const cors = require('cors');
 const path = require('path');
 const mongoose = require('mongoose');
+const helmet = require('helmet');
 require('dotenv').config();
 
 const productsRoutes = require('./routes/products.routes');
@@ -11,6 +12,7 @@ const app = express();
 
 /* MIDDLEWARE */
 app.use(cors());
+app.use(helmet());
 app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
 

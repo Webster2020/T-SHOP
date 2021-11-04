@@ -7,7 +7,7 @@
 
 @media (max-width: 992px) {
   .col {
-    flex-direction: column;
+    flex-direction: column !important;
     justify-content: center;
     align-items: center;
     margin-top: $base-size * 4;

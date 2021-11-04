@@ -29,4 +29,30 @@ router.get('/:id', async (req, res) => {
   }
 });
 
+router.post('/add', async (req, res) => {
+  try {
+    const { 
+      colors,
+      amount,
+      description,
+      like,
+      price,
+      currency,
+    } = req.body;
+    const newProduct = new Products({ 
+      colors: colors,
+      amount: amount,
+      description: description,
+      like: like,
+      price: price,
+      currency: currency,
+    });
+    await newProduct.save();
+    res.json({ message: 'OK' });
+  } 
+  catch(err) {
+    res.status(500).json({ message: err });
+  }
+});
+
 module.exports = router;
