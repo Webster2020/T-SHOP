@@ -6,6 +6,11 @@
   justify-content: center;
 }
 
+.verStart {
+  @extend .row;
+  justify-content: flex-start;
+}
+
 .vertical {
   @extend .row;
   flex-direction: column;

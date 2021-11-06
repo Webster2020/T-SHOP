@@ -32,8 +32,8 @@ export const caFetchProducts = (products, refetch, activeFetch) => {
       if(products.length < 1 && !activeFetch) {
         console.log('first fetch');
         axios
-          .get('http://tshop.webster2020.usermd.net/api/products/all')
-          // .get('http://localhost:8000/api/products/all')
+          // .get('http://tshop.webster2020.usermd.net/api/products/all')
+          .get('http://localhost:8000/api/products/all')
           .then(res => {
             dispatch(caFetchSuccess(res.data));
           })
@@ -44,8 +44,8 @@ export const caFetchProducts = (products, refetch, activeFetch) => {
     } else {
       console.log('refetch');
       axios
-        .get('http://tshop.webster2020.usermd.net/api/products/all')
-        // .get('http://localhost:8000/api/products/all')
+        // .get('http://tshop.webster2020.usermd.net/api/products/all')
+        .get('http://localhost:8000/api/products/all')
         .then(res => {
           console.log(res.data);
           dispatch(caFetchSuccess(res.data));
@@ -58,11 +58,10 @@ export const caFetchProducts = (products, refetch, activeFetch) => {
 };
 
 export const caAddProductToDB = (newProduct) => {
-  console.log('???');
   return (dispatch, getState) => {
     axios
-      .post(`http://tshop.webster2020.usermd.net/api/products/add`, newProduct)
-      // .post(`http://localhost:8000/api/products/add`, newProduct)
+      // .post(`http://tshop.webster2020.usermd.net/api/products/add`, newProduct)
+      .post(`http://localhost:8000/api/products/add`, newProduct)
       .then(res => {
         console.log(newProduct);
         dispatch(caAddProduct(newProduct));

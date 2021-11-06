@@ -1,25 +1,25 @@
-import React, { useState } from 'react';
+import React from 'react';
 import PropTypes from 'prop-types';
 
 import styles from './Tshirt.module.scss';
 
-const Component = ({view, type, featuresDB}) => {
+const Component = ({view, type, featuresDB, creator}) => {
 
-  const [colors, setColors] = useState({
-    main: 'white',
-    mainStripe: 'transparent',
-    logo: 'transparent',
-    sleeveL: 'white',
-    sleeveR: 'white',
-    stripeL: 'transparent',
-    stripeR: 'transparent',
-    collarStripe: 'transparent',
-  });
+  // const [colors, setColors] = useState({
+  //   main: 'white',
+  //   mainStripe: 'transparent',
+  //   logo: 'transparent',
+  //   sleeveL: 'white',
+  //   sleeveR: 'white',
+  //   stripeL: 'red',
+  //   stripeR: 'transparent',
+  //   collarStripe: 'transparent',
+  // });
 
-  const colorSource = type === 'common' ? featuresDB.colors : colors; 
+  const colorSource = type === 'common' ? featuresDB.colors : creator; 
 
   return (
-    <article className={`${view === 'home' && styles.root} ${view === 'cart' && styles.rootInCart}`}>
+    <article className={`${view === 'home' && styles.root} ${view === 'cart' && styles.rootInCart} ${view === 'create' && styles.rootInCreate}`}>
       <div className={styles.tShirt}>
         <div
           style={{ backgroundColor: colorSource.main }}
@@ -73,6 +73,7 @@ Component.propTypes = {
   view: PropTypes.string,
   type: PropTypes.string,
   featuresDB: PropTypes.object,
+  creator: PropTypes.object,
 };
 
 export {
