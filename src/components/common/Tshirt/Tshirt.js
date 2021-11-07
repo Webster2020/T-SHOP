@@ -3,7 +3,7 @@ import PropTypes from 'prop-types';
 
 import styles from './Tshirt.module.scss';
 
-const Component = ({view, type, featuresDB, creator}) => {
+const Component = ({view, type, featuresDB, colors}) => {
 
   // const [colors, setColors] = useState({
   //   main: 'white',
@@ -16,7 +16,7 @@ const Component = ({view, type, featuresDB, creator}) => {
   //   collarStripe: 'transparent',
   // });
 
-  const colorSource = type === 'common' ? featuresDB.colors : creator; 
+  const colorSource = type === 'common' ? featuresDB.colors : colors; 
 
   return (
     <article className={`${view === 'home' && styles.root} ${view === 'cart' && styles.rootInCart} ${view === 'create' && styles.rootInCreate}`}>
@@ -73,7 +73,7 @@ Component.propTypes = {
   view: PropTypes.string,
   type: PropTypes.string,
   featuresDB: PropTypes.object,
-  creator: PropTypes.object,
+  colors: PropTypes.object,
 };
 
 export {

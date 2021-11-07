@@ -34,6 +34,10 @@ const Component = () => {
     console.log(props);
     console.log(value);
     console.log('...........');
+    setColors({
+      ...colors,
+      [props]: value,
+    });
   };
 
   return (
@@ -42,11 +46,11 @@ const Component = () => {
         <Column flex='f2'>
           <GlassWrapper>
             {/* <AddProductTemp /> */}
-            <Tshirt view='create' creator={colors}/>
+            <Tshirt view='create' colors={colors}/>
           </GlassWrapper>
         </Column>
         <Column flex='f10'>
-          <CreateProductButtons creator={colors} onClick={(props, value) => handleSettingColors(props, value)}/>
+          <CreateProductButtons colors={colors} action={handleSettingColors}/>
         </Column>
       </Row>
     </div>
