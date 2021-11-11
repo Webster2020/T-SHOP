@@ -45,6 +45,11 @@
   font-size: $base-size * 2.6;
 }
 
+.fitted {
+  @extend .glass;
+  width: 150px;
+}
+
 .nav {
   @extend .glass;
   padding: $base-size * 3.75 0;

@@ -20,6 +20,11 @@
   text-align: end;
 }
 
+.big {
+  margin: 0 $base-size * 15;
+  transform: scale(1.9);
+}
+
 .f2 {
   flex: 2;
 }

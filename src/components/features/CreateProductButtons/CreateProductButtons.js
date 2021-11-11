@@ -12,10 +12,6 @@ import { Row } from '../../layout/Row/Row';
 
 const Component = ({colors, action}) => {
 
-  // const changeColor = (props, value) => {
-  //   action(props, value);
-  // };
-
   const stripesColorsArr = ['transparent', 'white', 'black', 'green', 'yellow'];
   const mainColorsArr = stripesColorsArr.slice(1, stripesColorsArr.length);
   const tShirtElements = [];
@@ -30,27 +26,14 @@ const Component = ({colors, action}) => {
     <div>
       {Object.keys(colors).map((elem) => (
         <Row key={shortid.generate()} className={styles.root}>
+          <Button variant='fitted' className={styles.colorButton}>
+            <div className={styles.content} style={{backgroundColor: 'transparent'}}><h3>{elem}</h3></div>
+          </Button>
           {stripesColorsArr.map((color) => (
             <Button key={shortid.generate()} variant='glass' className={styles.colorButton} onClick={() => action(elem, color)}>
               <div className={styles.content} style={{backgroundColor: color}}></div>
             </Button>
           ))}
-          <h2>{elem}</h2>
-          {/* <Button variant='glass' className={styles.colorButton} onClick={() => action(elem, 'transparent')}>
-            <div className={styles.content} style={{backgroundColor: 'transparent'}}></div>
-          </Button>
-          <Button variant='glass' className={styles.colorButton} onClick={() => action('main', 'white')}>
-            <div className={styles.content} style={{backgroundColor: 'white'}}></div>
-          </Button>
-          <Button variant='glass' className={styles.colorButton} onClick={() => action('main', 'black')}>
-            <div className={styles.content} style={{backgroundColor: 'black'}}></div>
-          </Button>
-          <Button variant='glass' className={styles.colorButton} onClick={() => action('main', 'green')}>
-            <div className={styles.content} style={{backgroundColor: 'green'}}></div>
-          </Button>
-          <Button variant='glass' className={styles.colorButton} onClick={() => action('main', 'yellow')}>
-            <div className={styles.content} style={{backgroundColor: 'yellow'}}></div>
-          </Button> */}
         </Row>
       ))}
     </div>

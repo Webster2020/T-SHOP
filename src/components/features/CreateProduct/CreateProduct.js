@@ -1,8 +1,6 @@
 import React, { useState } from 'react';
 import PropTypes from 'prop-types';
 
-import clsx from 'clsx';
-
 // import { connect } from 'react-redux';
 // import { reduxSelector, reduxActionCreator } from '../../../redux/exampleRedux.js';
 
@@ -29,11 +27,6 @@ const Component = () => {
   });
   
   const handleSettingColors = (props, value) => {
-    // e.preventDefault();
-    console.log('DUPA');
-    console.log(props);
-    console.log(value);
-    console.log('...........');
     setColors({
       ...colors,
       [props]: value,
@@ -43,7 +36,7 @@ const Component = () => {
   return (
     <div className={styles.root}>
       <Row variant='verCenter'>
-        <Column flex='f2'>
+        <Column flex='f2' size='big'>
           <GlassWrapper>
             {/* <AddProductTemp /> */}
             <Tshirt view='create' colors={colors}/>

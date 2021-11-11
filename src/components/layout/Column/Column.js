@@ -5,6 +5,7 @@ import styles from './Column.module.scss';
 
 const Component = ({
   children,
+  size,
   flex,
   direction,
   justify,
@@ -14,6 +15,7 @@ const Component = ({
   const classes = [];
 
   if (propClassName) classes.push(propClassName);
+  if (size) classes.push(styles[size]);
   if (flex) classes.push(styles[flex]);
   if (direction) classes.push(styles[direction]);
   if (justify) classes.push(styles[justify]);
@@ -28,6 +30,7 @@ const Component = ({
 
 Component.propTypes = {
   children: PropTypes.node,
+  size: PropTypes.string,
   flex: PropTypes.string,
   direction: PropTypes.string,
   justify: PropTypes.string,

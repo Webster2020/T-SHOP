@@ -1,9 +1,10 @@
 @import '../../../styles/settings.scss';
 
 .root {
+  margin: $base-size 0;
   margin-right: $base-size;
   justify-content: start !important;
-  border: 1px solid red;
+  // border: 1px solid red;
 }
 
 .content {
@@ -11,10 +12,15 @@
   margin: 0;
   height: 40px;
   width: 40px;
+  text-align: center;
   opacity: 0.5;
+  h3 {
+    display: inline-block;
+    margin: 10px 5px;
+  }
 }
 
 .colorButton {
   margin: 0 $base-size;
-  padding: 0;
+  padding: 0 !important;
 }
