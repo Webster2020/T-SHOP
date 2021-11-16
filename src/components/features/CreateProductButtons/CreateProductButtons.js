@@ -2,9 +2,6 @@ import React, { useEffect } from 'react';
 import PropTypes from 'prop-types';
 import shortid from 'shortid';
 
-// import { connect } from 'react-redux';
-// import { reduxSelector, reduxActionCreator } from '../../../redux/exampleRedux.js';
-
 import styles from './CreateProductButtons.module.scss';
 
 import { Button } from '../../common/Button/Button';
@@ -45,18 +42,7 @@ Component.propTypes = {
   action: PropTypes.func,
 };
 
-// const mapStateToProps = state => ({
-//   someProp: reduxSelector(state),
-// });
-
-// const mapDispatchToProps = dispatch => ({
-//   someAction: arg => dispatch(reduxActionCreator(arg)),
-// });
-
-// const Container = connect(mapStateToProps, mapDispatchToProps)(Component);
-
 export {
   Component as CreateProductButtons,
-  // Container as CreateProductButtons,
   Component as CreateProductButtonsComponent,
 };

@@ -1,9 +1,6 @@
 import React, { useState } from 'react';
 import PropTypes from 'prop-types';
 
-// import { connect } from 'react-redux';
-// import { reduxSelector, reduxActionCreator } from '../../../redux/exampleRedux.js';
-
 import styles from './CreateProduct.module.scss';
 
 import { Column } from '../../layout/Column/Column'; 
@@ -25,7 +22,7 @@ const Component = () => {
     stripeR: 'transparent',
     collarStripe: 'transparent',
   });
-  
+
   const handleSettingColors = (props, value) => {
     setColors({
       ...colors,
@@ -55,18 +52,7 @@ Component.propTypes = {
   className: PropTypes.string,
 };
 
-// const mapStateToProps = state => ({
-//   someProp: reduxSelector(state),
-// });
-
-// const mapDispatchToProps = dispatch => ({
-//   someAction: arg => dispatch(reduxActionCreator(arg)),
-// });
-
-// const Container = connect(mapStateToProps, mapDispatchToProps)(Component);
-
 export {
   Component as CreateProduct,
-  // Container as CreateProduct,
   Component as CreateProductComponent,
 };
